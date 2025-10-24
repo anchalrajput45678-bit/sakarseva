@@ -1,0 +1,1132 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Enviro Services - Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #FFFFFF;
+        }
+
+       /* Top Bar */
+.top-bar {
+    background: hsl(340, 77%, 65%);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-item:hover {
+    color: black;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-quote,
+.btn-brochure {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-quote {
+    background: #7BB640;
+    color: #FFFFFF;
+}
+
+.btn-quote:hover {
+    background: black;
+}
+
+.btn-brochure {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-brochure:hover {
+    background: #FFFFFF;
+    color: #1D3E6E;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.social-links a {
+    color: #FFFFFF;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #7BB640;
+}
+
+/* ✅ Mobile View Update */
+@media (max-width: 768px) {
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contact-item.email {
+        justify-content: flex-start;
+    }
+
+    .contact-item.phone {
+        justify-content: flex-end;
+    }
+
+    .top-buttons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+        /* Main Navbar */
+        .navbar {
+            background: #FFFFFF;
+            padding: 12px 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+        }
+
+          .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            padding-right: 88px;
+
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #1D3E6E;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #7BB640;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #FFFFFF;
+            min-width: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            color: #333333;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #7BB640;
+            color: #FFFFFF;
+            padding-left: 25px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #1D3E6E;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 1024px) {
+            .top-bar {
+                padding: 8px 15px;
+            }
+
+            .contact-info {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .social-links {
+                margin-left: 10px;
+            }
+
+            .social-links a {
+                font-size: 16px;
+            }
+
+            .top-buttons {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: #FFFFFF;
+                width: 280px;
+                height: 100vh;
+                padding: 80px 20px 20px;
+                box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 15px 10px;
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: #f8f9fa;
+                border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                margin-top: 0;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+                max-height: 500px;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 25px;
+                font-size: 13px;
+            }
+
+             .mobile-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 10px;
+                
+                border-top: 2px solid #1D3E6E;
+            }
+
+            .mobile-buttons .btn-quote,
+            .mobile-buttons .btn-brochure {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                color: #1D3E6E;
+                cursor: pointer;
+                display: none;
+            }
+
+            .nav-menu.active ~ .close-menu {
+                display: block;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info {
+                gap: 10px;
+            }
+
+            .contact-item {
+                font-size: 11px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 14px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .nav-menu {
+                width: 250px;
+            }
+        }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+    <div class="contact-info">
+        <a href="mailto:Sakarsewango@gmail.com" class="contact-item email">
+            <i class="fas fa-envelope"></i>
+            <span> Sakarsewango@gmail.com</span>
+        </a>
+        <a href="tel:+919860732366" class="contact-item phone">
+            <i class="fas fa-phone"></i>
+            <span> +91 9244989746</span>
+        </a>
+    </div>
+    <div class="top-buttons">
+        <!-- <a href="./Getaquote.html" class="btn-quote">Get a Quote</a>
+        <a href="./brochure.html" class="btn-brochure">Get Brochure</a> -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/mantras-innovation-solutions-private-limited/posts/?feedView=all " target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/planetenviro/?igsh=d3U0OGx0YTBpa2lz#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="./imagelogo.png" alt="Planet Enviro Services">
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#about" class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./aboutus.html">About Us</a></li>
+                        <li><a href="./ourMission.html">Our Mission</a></li>
+                        <li><a href="./ourVision.html">Our Vision</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="nav-item" >
+                    <a href="./projects1.html" class="nav-link" style="white-space: nowrap;">
+                        Our Projects 
+                        <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./expertiseEcEIa.html"> 
+    </a></li>
+                        <li><a href="./expertiseSustainability.html"> Sustainability Consulting</a></li>
+                        <li><a href="./expertiseEdDiligence.html">Environmental Due Diligence </a></li>
+                        <li><a href="./expertiseCrz.html">CRZ Clearance </a></li>
+                        <li><a href="./expertiseCompliance.html">Environmental Compliance </a></li>
+                        <li><a href="./expertiseTesting.html">Environmental Monitoring and Testing </a></li>
+                        <li><a href="./expertiseSix.html">Six Monthly Post EC Compliance </a></li>
+                        <li><a href="./expertiseWaterSolu.html">Water and Wastewater Treatment Solutions </a></li>
+                    </ul> -->
+                </li>
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./upcomingpro.html" class="nav-link">
+                        Upcoming Projects
+                         <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./servicesEnviroService.html">Environmental Services </a></li>
+                        <li><a href="./servicesCompliances.html"> Consent Management and Compliances</a></li>
+                        <li><a href="./servicesOtherLegal.html">Other Legal Compliances Services </a></li>
+                        <li><a href="./servicesSustainability.html">Sustainability Services </a></li>
+                        <li><a href="./environmentalMonitoring.html">Environmental Monitoring </a></li>
+                         <li><a href="#monitoring">Environmental Monitoring</a></li> -->
+                    <!-- </ul> --> 
+                </li>
+
+                 
+
+                <!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#we-provide" class="nav-link">
+                          <i class="fas fa-chevron-down"></i> -->
+                    <!-- </a> -->
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./ProductsEfflunet.html"> Effluent Treatment Plants (ETP)</a></li>
+                        <li><a href="./productsSewagePlants.html">Sewage Treatment Plants (STP)</a></li>
+                        <li><a href="./productsDischanrge.html"> Zero Liquid Discharge (ZLD)</a></li>
+                        <li><a href="./productsRoUf.html"> RO+UF Plants</a></li>
+                        <li><a href="./productsSoftners.html"> Water Softeners</a></li>
+                        <li><a href="./productsDmPlants.html">DM Plants</a></li>
+                        <a href="./productsConverters.html "> Organic Waste Converters</a>
+          <a href="./airPollutionControl.html"> Air Pollution Control Equipment </a>
+          
+                    </ul> -->
+                </li>
+
+<!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./weProvide.html" class="nav-link"> We Provide</a>
+                </li> -->
+                 
+                
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./contact.html" class="nav-link">Contact Us</a>
+                </li>
+
+               
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('overlay');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Mobile dropdown toggle
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Close menu when clicking nav links on mobile
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-link') || !e.target.closest('.nav-item').querySelector('.dropdown-menu')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    </script>
+
+  <!-- Hero Section -->
+<section style="
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    max-height: 500px;
+    background-image: url(' https://img.freepik.com/premium-photo/hands-cut-out-multicolored-paper-orange-background-place-text_185193-133301.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    ">
+    <!-- Overlay Text -->
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        text-align: center;
+        padding: 0 10px;
+        ">
+        Upcoming Projects
+    </div>
+</section>
+
+
+    <!-- Mission Section -->
+    <section style="padding: 80px 20px; background-color: #F5F5F5;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: #FF0099; text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Our Mission & Vision</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+                <div style="flex: 1; min-width: 300px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="background-color: #FF0099; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-heart" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Our Mission</h3>
+                    <p style="color: #333333;">To create a better, educated, and empowered society through dedicated social service initiatives that uplift the underprivileged and marginalized communities.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="background-color: #FF6600; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-eye" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Our Vision</h3>
+                    <p style="color: #333333;">A society where every individual has access to education, healthcare, and opportunities for growth, regardless of their socio-economic background.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <div style="background-color: #66CC33; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-hands-helping" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Our Approach</h3>
+                    <p style="color: #333333;">We work at the grassroots level, directly engaging with communities to understand their needs and implementing sustainable solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section style="padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: #FF0099; text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Our Key Initiatives</h2>
+            
+            <!-- Women Empowerment -->
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;">Women Empowerment</h3>
+                    <p style="color: #333333; margin-bottom: 20px;">We provide training to make women self-reliant, legal assistance, and support for those wanting to start their own businesses.</p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Vocational training programs</li>
+                        <li style="margin-bottom: 10px;">Legal assistance for women</li>
+                        <li style="margin-bottom: 10px;">Business support and mentorship</li>
+                        <li style="margin-bottom: 10px;">Self-defense training</li>
+                    </ul>
+                    <!-- <button style="background-color: #FF0099; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">Learn More</button> -->
+                </div>
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url('https://www.opscstudy.com/wp-content/uploads/2024/11/Women-Empowerment_11zon-1-1024x595.jpg ');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Light overlay for readability -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        
+        border-radius: 10px;
+    "></div>
+
+     
+</div>
+</div>
+
+            </div>
+            
+            <!-- Education for Underprivileged Children -->
+            <div style="display: flex; flex-wrap: wrap-reverse; gap: 40px; margin-bottom: 60px; align-items: center;">
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url(' https://tse3.mm.bing.net/th/id/OIP.su3Mxc9fST6T1AOofPwSwgHaDX?pid=Api&P=0&h=180');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Light overlay for clarity -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+       
+        border-radius: 10px;
+    "></div>
+
+     
+</div>
+</div>
+
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;">Education for Underprivileged Children</h3>
+                    <p style="color: #333333; margin-bottom: 20px;">We ensure every child has access to books and education through free study centers and educational materials.</p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Free study materials and books</li>
+                        <li style="margin-bottom: 10px;">Free coaching for competitive exams</li>
+                        <li style="margin-bottom: 10px;">Free study app for all competitive exams</li>
+                        <li style="margin-bottom: 10px;">Career counseling services</li>
+                    </ul>
+                   
+                </div>
+            </div>
+            
+            <!-- Support for Widows & Divyang -->
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;">Support for Widows & Divyang</h3>
+                    <p style="color: #333333; margin-bottom: 20px;">We provide financial assistance and support services to widows and differently-abled individuals.</p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Financial assistance programs</li>
+                        <li style="margin-bottom: 10px;">Skill development training</li>
+                        <li style="margin-bottom: 10px;">Healthcare support</li>
+                        <li style="margin-bottom: 10px;">Social integration initiatives</li>
+                    </ul>
+                    <!-- <button style="background-color: #FF0099; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">Learn More</button> -->
+                </div>
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url('https://savioursfoundation.org/wp-content/uploads/2020/03/Widow-Women-1.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Optional light overlay for clarity -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+         
+        border-radius: 10px;
+    "></div>
+
+    <!-- Icon above overlay -->
+    <!-- <i class="fas fa-wheelchair" style="font-size: 8rem; color: #0099FF; position: relative; z-index: 1;"></i> -->
+  </div>
+</div>
+ </div>
+ <!-- 5 -->
+    
+            <div style="display: flex; flex-wrap: wrap-reverse; gap: 40px; margin-bottom: 60px; align-items: center;">
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url('https://tse2.mm.bing.net/th/id/OIP.T25Vv3LRLOrN4uSBSZ-1JgHaEn?pid=Api&P=0&h=180');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Light overlay for clarity -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+       
+        border-radius: 10px;
+    "></div>
+
+    <!-- Icon above overlay -->
+    <!-- <i class="fas fa-book" style="font-size: 8rem; color: #FF6600; position: relative; z-index: 1;"></i> -->
+  </div>
+</div>
+
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;"> Free Competitive Exam Coaching for Youth</h3>
+                    <p style="color: #333333; margin-bottom: 20px;"> We provide young aspirants with access to free coaching, study materials, and guidance to help them succeed in competitive exams.</p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Free study materials and books</li>
+                        <li style="margin-bottom: 10px;">Free coaching for competitive exams</li>
+                        <li style="margin-bottom: 10px;">Free study app for all competitive exams</li>
+                        <li style="margin-bottom: 10px;">Career counseling services</li>
+                    </ul>
+                    <!-- <button style="background-color: #FF6600; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">Learn More</button> -->
+                </div>
+            </div>
+
+            <!-- 6 -->
+              <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;">Legal Assistance for Women </h3>
+                    <p style="color: #333333; margin-bottom: 20px;"> We provide women with free legal support, guidance, and resources to ensure their rights are protected.</p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Free legal consultation </li>
+                        <li style="margin-bottom: 10px;">Assistance with legal documentation </li>
+                        <li style="margin-bottom: 10px;">Guidance on rights and legal procedures </li>
+                        <li style="margin-bottom: 10px;">Support for women facing legal challenges </li>
+                    </ul>
+                    <!-- <button style="background-color: #FF0099; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">Learn More</button> -->
+                </div>
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url('https://www.centurylawfirm.in/blog/wp-content/uploads/2023/12/women-rights-and-laws-in-india-768x768.png ');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Optional light overlay for clarity -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+         
+        border-radius: 10px;
+    "></div>
+
+    <!-- Icon above overlay -->
+    <!-- <i class="fas fa-wheelchair" style="font-size: 8rem; color: #0099FF; position: relative; z-index: 1;"></i> -->
+  </div>
+</div>
+ </div>
+ <!-- 7 -->
+   
+            <div style="display: flex; flex-wrap: wrap-reverse; gap: 40px; margin-bottom: 60px; align-items: center;">
+                 <div style="flex: 1; min-width: 300px; text-align: center;">
+  <div style="
+      background-image: url('https://wallpaperaccess.com/full/1316808.jpg ');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 30px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+  ">
+    <!-- Light overlay for clarity -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+       
+        border-radius: 10px;
+    "></div>
+
+    <!-- Icon above overlay -->
+    <!-- <i class="fas fa-book" style="font-size: 8rem; color: #FF6600; position: relative; z-index: 1;"></i> -->
+  </div>
+</div>
+
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: #FF6600; font-size: 1.8rem; margin-bottom: 20px;"> Support for Education and Marriage of Orphan Girls </h3>
+                    <p style="color: #333333; margin-bottom: 20px;">We help orphan girls by providing access to education and assisting them in their marriage, ensuring a better future. </p>
+                    <ul style="color: #333333; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Free educational support and study materials </li>
+                        <li style="margin-bottom: 10px;">Guidance and assistance for marriage </li>
+                        <li style="margin-bottom: 10px;">Mentorship and counseling for personal growth </li>
+                        <li style="margin-bottom: 10px;"> Ensuring safety and empowerment for orphan girls</li>
+                    </ul>
+                    <!-- <button style="background-color: #FF6600; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">Learn More</button> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
+    <!-- Benefits Section -->
+    <section style="padding: 80px 20px; background-color: #F5F5F5;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: #FF0099; text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Benefits for SS Foundation Members</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                <div style="flex: 1; min-width: 250px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                    <div style="background-color: #FFCC00; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-shield-alt" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Accidental & Life Insurance</h3>
+                    <p style="color: #333333;">Insurance coverage from ₹11,000 to ₹51,000 for all SS Foundation members.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                    <div style="background-color: #66CC33; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-hand-holding-usd" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Financial Support</h3>
+                    <p style="color: #333333;">Financial assistance in case of disability due to accidents for members.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                    <div style="background-color: #FF0099; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-mobile-alt" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Free Study App</h3>
+                    <p style="color: #333333;">Access to our free online study app for all competitive exams in one place.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                    <div style="background-color: #0099FF; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-hands" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: #FF6600; margin-bottom: 15px;">Service Opportunities</h3>
+                    <p style="color: #333333;">Opportunities to participate in social service and virtuous deeds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Programs Section -->
+     <section style="padding: 80px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #FF0099; text-align: center; font-size: 2.5rem; margin-bottom: 50px;">Additional Programs</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF6600;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Accidental & Life Insurance</h3>
+                <p style="color: #333333;">Insurance coverage for members ranging from ₹11,000 to ₹51,000.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF3300;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Financial Support for Accidents</h3>
+                <p style="color: #333333;">Economic assistance for accidental disability or loss of limbs.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #66CC33;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Free Study App</h3>
+                <p style="color: #333333;">Free online study app for all competitive exams in one place.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF0099;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Women Employment Support</h3>
+                <p style="color: #333333;">Helping women gain employment and supporting female entrepreneurs at the ground level.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF0066;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Support for Female Entrepreneurs</h3>
+                <p style="color: #333333;">If a woman runs her own business and wants to grow, the foundation provides full ground-level support.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #0099FF;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Social Service & Charity</h3>
+                <p style="color: #333333;">Opportunities to participate in social service and charitable activities.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FFCC00;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Environmental Protection</h3>
+                <p style="color: #333333;">Participation in programs focused on environmental conservation.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF6600;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Animal Welfare</h3>
+                <p style="color: #333333;">Service activities for voiceless animals and their protection.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #33CCFF;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Free Schools & Training Centers</h3>
+                <p style="color: #333333;">Facilities to open free schools and training centers in underserved areas.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF33CC;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Health & De-addiction Camps</h3>
+                <p style="color: #333333;">5 health and de-addiction awareness camps for community wellness.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF9900;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Senior Citizen Care</h3>
+                <p style="color: #333333;">Senior citizen care council and wellness programs for ages 18–20 and above.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #009966;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Religious & Spiritual Programs</h3>
+                <p style="color: #333333;">Organizing religious and spiritual programs for community engagement.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF0066;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Career & Mental Health Counseling</h3>
+                <p style="color: #333333;">Career guidance and support for children facing stress, depression, or mental health issues.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #0066FF;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Slum Awareness & Medical Camps</h3>
+                <p style="color: #333333;">Education and health awareness in slums, organizing medical camps as needed.</p>
+            </div>
+
+            <div style="background-color: #E6F3FF; padding: 25px; border-radius: 10px; border-left: 5px solid #FF9933;">
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Women & Child Safety</h3>
+                <p style="color: #333333;">Training and awareness for women and children to protect themselves effectively.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- footer se upper vala -->
+    <!-- Hero Section Start -->
+<section style="
+    position:relative;
+    width:100%;
+    height:20vh; /* Desktop में full hero */
+    min-height:400px; /* Minimum height for mobile */
+    background:url('https://media.istockphoto.com/id/530008463/photo/man-and-woman-clasping-hands-tenderly.jpg?s=612x612&w=0&k=20&c=uWyYcdtDyAf8Y-NoCRTy_oBbbmWxI-O9t6RdxaB1aQg=') center center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column; /* Mobile friendly stacking */
+    text-align:center;
+">
+    <!-- Overlay -->
+    <div style="
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,0.5);
+        z-index:1;
+    "></div>
+
+    <!-- Content -->
+    <div style="
+        position:relative;
+        color:#fff;
+        max-width:700px;
+        padding:20px;
+        z-index:2;
+    ">
+        <h1 style="
+            font-size:2.2rem; 
+            font-weight:700; 
+            line-height:1.3; 
+            margin-bottom:15px;
+color: rgb(237, 105, 57);
+        ">
+             Our Goal: An Educated and Empowered Society
+        </h1>
+
+        <h2 style="font-size:1.1rem; min-height:50px; margin-bottom:25px;">
+            <span id="typing-text" style="border-right:3px solid #fff;white-space:nowrap;overflow:hidden;display:inline-block;"></span>
+        </h2>
+
+         <button style="
+    background-color:#ff4081;
+    color:#fff;
+    padding:12px 20px;
+    font-size:1rem;
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+"
+onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#e73370';"
+onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#ff4081';"
+onclick="window.location.href='./contact.html';">
+    Contact Us
+</button>
+
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<script>
+window.onload = function() {
+    const texts = [
+        "Move forward for women empowerment",
+        "Provide education to underprivileged children",
+        "Help widows and differently-abled individuals",
+        "Offer free competitive exam coaching to youth ",
+        "Participate in social service and noble causes"
+    ];
+    let count = 0, index = 0;
+
+    (function type(){
+        if(count === texts.length) count = 0;
+        let currentText = texts[count];
+        let letter = currentText.slice(0, ++index);
+        document.getElementById('typing-text').textContent = letter;
+        if(letter.length === currentText.length){
+            count++;
+            index = 0;
+            setTimeout(type, 1000);
+        } else {
+            setTimeout(type, 100);
+        }
+    }());
+};
+</script>
+
+  <!-- end 2 hero section --> 

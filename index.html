@@ -1,0 +1,1282 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Enviro Services - Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #FFFFFF;
+        }
+
+       /* Top Bar */
+.top-bar {
+    background: hsl(340, 77%, 65%);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-item:hover {
+    color: black;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-quote,
+.btn-brochure {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-quote {
+    background: #7BB640;
+    color: #FFFFFF;
+}
+
+.btn-quote:hover {
+    background: black;
+}
+
+.btn-brochure {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-brochure:hover {
+    background: #FFFFFF;
+    color: #1D3E6E;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.social-links a {
+    color: #FFFFFF;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #7BB640;
+}
+
+/* ✅ Mobile View Update */
+@media (max-width: 768px) {
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contact-item.email {
+        justify-content: flex-start;
+    }
+
+    .contact-item.phone {
+        justify-content: flex-end;
+    }
+
+    .top-buttons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+        /* Main Navbar */
+        .navbar {
+            background: #FFFFFF;
+            padding: 12px 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+        }
+
+          .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            padding-right: 88px;
+
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #1D3E6E;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #7BB640;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #FFFFFF;
+            min-width: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            color: #333333;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #7BB640;
+            color: #FFFFFF;
+            padding-left: 25px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #1D3E6E;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 1024px) {
+            .top-bar {
+                padding: 8px 15px;
+            }
+
+            .contact-info {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .social-links {
+                margin-left: 10px;
+            }
+
+            .social-links a {
+                font-size: 16px;
+            }
+
+            .top-buttons {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: #FFFFFF;
+                width: 280px;
+                height: 100vh;
+                padding: 80px 20px 20px;
+                box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 15px 10px;
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: #f8f9fa;
+                border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                margin-top: 0;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+                max-height: 500px;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 25px;
+                font-size: 13px;
+            }
+
+             .mobile-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 10px;
+                
+                border-top: 2px solid #1D3E6E;
+            }
+
+            .mobile-buttons .btn-quote,
+            .mobile-buttons .btn-brochure {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                color: #1D3E6E;
+                cursor: pointer;
+                display: none;
+            }
+
+            .nav-menu.active ~ .close-menu {
+                display: block;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info {
+                gap: 10px;
+            }
+
+            .contact-item {
+                font-size: 11px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 14px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .nav-menu {
+                width: 250px;
+            }
+        }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+    <div class="contact-info">
+        <a href="mailto:Sakarsewango@gmail.com" class="contact-item email">
+            <i class="fas fa-envelope"></i>
+            <span> Sakarsewango@gmail.com</span>
+        </a>
+        <a href="tel:+919860732366" class="contact-item phone">
+            <i class="fas fa-phone"></i>
+            <span> +91 9244989746</span>
+        </a>
+    </div>
+    <div class="top-buttons">
+        <!-- <a href="./Getaquote.html" class="btn-quote">Get a Quote</a>
+        <a href="./brochure.html" class="btn-brochure">Get Brochure</a> -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/mantras-innovation-solutions-private-limited/posts/?feedView=all " target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/planetenviro/?igsh=d3U0OGx0YTBpa2lz#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="./imagelogo.png" alt="Planet Enviro Services">
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#about" class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./aboutus.html">About Us</a></li>
+                        <li><a href="./ourMission.html">Our Mission</a></li>
+                        <li><a href="./ourVision.html">Our Vision</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="nav-item" >
+                    <a href="./projects1.html" class="nav-link" style="white-space: nowrap;">
+                        Our Projects 
+                        <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./expertiseEcEIa.html"> 
+    </a></li>
+                        <li><a href="./expertiseSustainability.html"> Sustainability Consulting</a></li>
+                        <li><a href="./expertiseEdDiligence.html">Environmental Due Diligence </a></li>
+                        <li><a href="./expertiseCrz.html">CRZ Clearance </a></li>
+                        <li><a href="./expertiseCompliance.html">Environmental Compliance </a></li>
+                        <li><a href="./expertiseTesting.html">Environmental Monitoring and Testing </a></li>
+                        <li><a href="./expertiseSix.html">Six Monthly Post EC Compliance </a></li>
+                        <li><a href="./expertiseWaterSolu.html">Water and Wastewater Treatment Solutions </a></li>
+                    </ul> -->
+                </li>
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./upcomingpro.html" class="nav-link">
+                        Upcoming Projects
+                         <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./servicesEnviroService.html">Environmental Services </a></li>
+                        <li><a href="./servicesCompliances.html"> Consent Management and Compliances</a></li>
+                        <li><a href="./servicesOtherLegal.html">Other Legal Compliances Services </a></li>
+                        <li><a href="./servicesSustainability.html">Sustainability Services </a></li>
+                        <li><a href="./environmentalMonitoring.html">Environmental Monitoring </a></li>
+                         <li><a href="#monitoring">Environmental Monitoring</a></li> -->
+                    <!-- </ul> --> 
+                </li>
+
+                 
+
+                <!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#we-provide" class="nav-link">
+                          <i class="fas fa-chevron-down"></i> -->
+                    <!-- </a> -->
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./ProductsEfflunet.html"> Effluent Treatment Plants (ETP)</a></li>
+                        <li><a href="./productsSewagePlants.html">Sewage Treatment Plants (STP)</a></li>
+                        <li><a href="./productsDischanrge.html"> Zero Liquid Discharge (ZLD)</a></li>
+                        <li><a href="./productsRoUf.html"> RO+UF Plants</a></li>
+                        <li><a href="./productsSoftners.html"> Water Softeners</a></li>
+                        <li><a href="./productsDmPlants.html">DM Plants</a></li>
+                        <a href="./productsConverters.html "> Organic Waste Converters</a>
+          <a href="./airPollutionControl.html"> Air Pollution Control Equipment </a>
+          
+                    </ul> -->
+                </li>
+
+<!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./weProvide.html" class="nav-link"> We Provide</a>
+                </li> -->
+                 
+                
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./contact.html" class="nav-link">Contact Us</a>
+                </li>
+
+               
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('overlay');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Mobile dropdown toggle
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Close menu when clicking nav links on mobile
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-link') || !e.target.closest('.nav-item').querySelector('.dropdown-menu')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    </script>
+
+
+<!-- Hero Slider Section -->
+    <div id="heroSlider" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+        
+         
+
+
+
+
+
+
+
+        <div class="slide" style="position: relative; width: 100%; height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(91,140,41,0.4)), url('./imagehome1.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff; text-align: center;">
+  <div style="max-width: 1000px; padding: 40px 20px; z-index: 2; animation: fadeIn 2s ease-in-out;">
+    
+    
+
+    <!-- Heading -->
+    <h1 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); line-height: 1.2; margin-bottom: 15px;color: white">
+      Sakar Seva
+    </h1>
+
+    
+
+    <!-- Company Description -->
+    <p style="font-size: clamp(0.8rem,1.5vw,1rem);text-align: justify; font-weight: 300; line-height: 1.6; color: #f2f2f2; text-shadow: 1px 1px 5px rgba(0,0,0,0.6); margin-bottom: 35px;">
+       "Every blessed human has a kind side and wants to help the less fortunate-but often doesn't know where to start or how
+to find the right path."
+The SS Foundation, established in 2025, is a registered non-profit, non-governmental organization dedicated to
+community development, child welfare, education, and healthcare initiatives. 
+    </p>
+
+    
+  </div>
+
+  <!-- Simple fade animation -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</div>
+
+
+        <!-- Slide 2 -  -->
+
+
+        <div class="slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(91,140,41,0.4), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?cs=srgb&dl=pexels-swastikarora-18012456.jpg&fm=jpg') center/cover; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="text-align: center; color: #FFFFFF; padding: 30px 20px; max-width: 1200px; width: 90%; z-index: 2;">
+                
+                <h1 style="font-size: clamp(1.5rem, 4vw, 3rem); margin: 0 0 18px 0; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); line-height: 1.2;">  Education for Every Child</h1>
+                <p style="font-size: clamp( 0.8rem,1.5vw,1rem); margin: 0 0 28px 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); color: #FFFFFF; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;text-align: justify;text-align: center;"> Let’s bring books and knowledge to every child </p>
+                </div>
+        </div>
+         
+
+         
+
+        <!-- Slide 3 - Environmental Clearances -->
+         <div class="slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(123,182,64,0.35), rgba(0,0,0,0.55)), url('https://www.unicef.org/india/sites/unicef.org.india/files/styles/media_large_image/public/Every%20Right%20For%20Every%20Child_Clean%20Environment.jpg.webp?itok=z7Fit6aP ') center/cover; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="text-align: center; color: #FFFFFF; padding: 30px 20px; max-width: 1200px; width: 90%; z-index: 2;">
+               <h1 style="font-size: clamp(1.5rem, 4vw, 3rem); margin: 0 0 15px 0; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); line-height: 1.2;"> Every Child Deserves a Future   </h1>
+                <p style="font-size: clamp( 0.8rem,1.5vw,1rem); margin: 0 0 25px 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); color: #FFFFFF; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;text-align: justify;text-align: center;"> Education transforms lives. Help us bring quality learning to every child in need </p>
+              
+            </div>
+        </div>
+
+        <!-- Slide 4 -   -->
+        <div class="slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(91,140,41,0.45)), url(' https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&h=900&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="text-align: center; color: #FFFFFF; padding: 30px 20px; max-width: 1200px; width: 90%; z-index: 2;">
+             <h1 style="font-size: clamp(1.5rem, 4vw, 3rem); margin: 0 0 20px 0; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); line-height: 1.2;text-align: center;"> Helping Hands for the Needy  </h1>
+                <p style="font-size: clamp ( 0.8rem,1.5vw,1rem); text-align: justify;margin: 0 0 25px 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); color: #FFFFFF; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;text-align: center;">  
+                  Every meal brings a child closer to their dreams</p>
+    </div>
+        </div>
+
+        <!-- 5 -->
+          
+        <div class="slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.45), rgba(91,140,41,0.5)), url('https://content3.jdmagicbox.com/v2/comp/bangalore/z4/080pxx80.xx80.170917214519.u9z4/catalogue/sarvoham-welfare-trust-jp-nagar-8th-phase-bangalore-welfare-organisations-ig9020oq7q.jpg') center/cover; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="text-align: center; color: #FFFFFF; padding: 30px 20px; max-width: 1200px; width: 90%; z-index: 2;">
+            
+                <h1 style="font-size: clamp(1.5rem, 4vw, 3rem); margin: 0 0 15px 0; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); line-height: 1.2;">  Animal Care  </h1>
+                <p style="font-size: clamp(  0.8rem,1.5vw,1rem); margin: 0 0 25px 0; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); color: #FFFFFF; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;text-align: justify;">    </p>
+Be kind to all living beings
+                
+            </div>
+        </div>
+ 
+ 
+
+
+        <!-- Navigation Arrows -->
+        <div class="nav-arrow" onclick="changeSlide(-1)" style="position: absolute; top: 50%; left: clamp(10px, 2vw, 20px); transform: translateY(-50%); background: rgba(29,62,110,0.7); color: #FFFFFF; padding: clamp(12px, 2vw, 15px) clamp(16px, 2.5vw, 20px); cursor: pointer; border-radius: 50%; font-size: clamp(20px, 3vw, 24px); user-select: none; backdrop-filter: blur(5px); z-index: 10; transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);">❮</div>
+        <div class="nav-arrow" onclick="changeSlide(1)" style="position: absolute; top: 50%; right: clamp(10px, 2vw, 20px); transform: translateY(-50%); background: rgba(29,62,110,0.7); color: #FFFFFF; padding: clamp(12px, 2vw, 15px) clamp(16px, 2.5vw, 20px); cursor: pointer; border-radius: 50%; font-size: clamp(20px, 3vw, 24px); user-select: none; backdrop-filter: blur(5px); z-index: 10; transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);">❯</div>
+
+        <!-- Dots Navigation -->
+        <div style="position: absolute; bottom: clamp(20px, 4vw, 30px); left: 50%; transform: translateX(-50%); display: flex; gap: clamp(8px, 1.5vw, 12px); z-index: 10; flex-wrap: wrap; justify-content: center; padding: 0 10px;">
+            <span class="dot" onclick="currentSlide(0)" style="width: clamp(10px, 2vw, 14px); height: clamp(10px, 2vw, 14px); border-radius: 50%; background: #7BB640; cursor: pointer; box-shadow: 0 2px 8px rgba(123,182,64,0.6); transition: all 0.3s; border: 2px solid #FFFFFF;"></span>
+            <span class="dot" onclick="currentSlide(1)" style="width: clamp(10px, 2vw, 14px); height: clamp(10px, 2vw, 14px); border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: all 0.3s; border: 2px solid #FFFFFF;"></span>
+            <span class="dot" onclick="currentSlide(2)" style="width: clamp(10px, 2vw, 14px); height: clamp(10px, 2vw, 14px); border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: all 0.3s; border: 2px solid #FFFFFF;"></span>
+            <span class="dot" onclick="currentSlide(3)" style="width: clamp(10px, 2vw, 14px); height: clamp(10px, 2vw, 14px); border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: all 0.3s; border: 2px solid #FFFFFF;"></span>
+            <span class="dot" onclick="currentSlide(4)" style="width: clamp(10px, 2vw, 14px); height: clamp(10px, 2vw, 14px); border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); transition: all 0.3s; border: 2px solid #FFFFFF;"></span>
+        </div>
+    </div>
+
+    <!-- Overview Section with Stats -->
+    <div style="position: relative; margin-top: -100px; z-index: 100; padding: 0 clamp(20px, 8vw, 120px);">
+        <div style="max-width: 1200px; margin: 0 auto; background: #FFFFFF; border-radius: 15px; box-shadow: 0 10px 50px rgba(0,0,0,0.15); overflow: hidden;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+                
+                <!-- Left Side - Content -->
+                <div style="background-color: rgb(176, 61, 100); padding: clamp(40px, 6vw, 60px) clamp(30px, 5vw, 50px); color: #FFFFFF; display: flex; flex-direction: column; justify-content: center;">
+                    <p style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); margin: 0 0 15px 0; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 0.5px;">Overview</p>
+                    <h2 style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0 0 20px 0; font-weight: 700; line-height: 1.3;">  Sakar Seva Foundation </h2>
+                    <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); margin: 0 0 30px 0; line-height: 1.7; color: rgba(255,255,255,0.95); text-align: justify;"><strong style="color: #FFFFFF;">  Sakar Seva Foundation</strong> 
+                          established in 2025, is a registered non-profit, non-governmental organization dedicated to
+community development, child welfare, education, and healthcare initiatives. We believe that education is both a means
+and an end to a better life: a means because it empowers individuals to earn their livelihood, and an end because it
+raises awareness about a wide range of social issues. </p>
+                     
+                 
+
+                </div>
+
+                 <!-- 🔳 2x2 Image Grid Section -->
+<div style="background: #F8F9FA; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0;">
+
+  <!-- Box 1 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center; border-right: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Zyxnp4-fxieBk2lQ3H_lP6JJNwfbPfAY6BSgzhL11nwxQLtWnv7k0rvIhCBj5A_5uSc&usqp=CAU" alt="Image 1" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;">Children Right</p>
+  </div>
+
+  <!-- Box 2 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center; border-bottom: 1px solid #E5E5E5;">
+    <img src="https://media.istockphoto.com/id/529101533/photo/water-conservation-in-europe-water-globe-in-the-hands.jpg?s=612x612&w=0&k=20&c=2sjCPSmivry5EL3FJ11l45wu4us5Q5CZrl-F779-ok0=" alt="Image 2" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;">Save Water</p>
+  </div>
+
+  <!-- Box 3 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center; border-right: 1px solid #E5E5E5;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0kgTB37_Jc1MvJWQOnwkJ7ZQtbEWi2dEQXKuTq-JbtdcgqDVDf5vv4dfMEyFr0g2fZC8&usqp=CAU" alt="Image 3" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;">Gender Inequality</p>
+  </div>
+
+  <!-- Box 4 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center;">
+    <img src="https://i.pinimg.com/474x/bb/b9/82/bbb98276b247bfecde16158b99dc1084.jpg" alt="Image 4" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;">Woman Empowerment</p>
+  </div>
+
+  <!-- Box 5 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7cAZyRXqQDh65wvlNozqgJOGwoBxmWGtBCQ&s" alt="Image 4" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;"> Clean
+India Beautified India
+</p>
+  </div>
+
+  <!-- Box 6 -->
+  <div style="background: #FFFFFF; padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px); text-align: center;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa2ZRE3K4MEit3G3dKYhbirBlLttwNaooTxg&s " alt="Image 4" style="width: 100%; height: 150px; object-fit: cover; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 8px;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+    <p style="font-size: clamp(0.85rem, 1.3vw, 1rem); color: #333333; font-weight: 600; margin-top: 15px;"> Employment</p>
+  </div>
+
+</div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add spacing below -->
+    <div style="height: 80px;"></div>
+
+    <script>
+        // Counter Animation
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            let increment = target / (duration / 16);
+            let current = start;
+
+            let timer = setInterval(function() {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for Stats
+        let observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        let observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    
+                    let counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(function(counter) {
+                        let target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target, 2000);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all stat boxes
+        let statBoxes = document.querySelectorAll('.stat-box');
+        statBoxes.forEach(function(box) {
+            observer.observe(box);
+        });
+
+        // Stat Box Hover Effects
+        statBoxes.forEach(function(box) {
+            box.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)';
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 5px 20px rgba(123,182,64,0.2)';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.background = '#FFFFFF';
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Hero Slider Functionality
+        let currentIndex = 0;
+        let slides = document.querySelectorAll('.slide');
+        let dots = document.querySelectorAll('.dot');
+        let autoSlideInterval;
+
+        function showSlide(index) {
+            slides.forEach(function(slide, i) {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+            
+            dots.forEach(function(dot, i) {
+                if (i === index) {
+                    dot.style.background = '#7BB640';
+                    dot.style.transform = 'scale(1.3)';
+                    dot.style.boxShadow = '0 2px 10px rgba(123,182,64,0.8)';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.5)';
+                    dot.style.transform = 'scale(1)';
+                    dot.style.boxShadow = '0 2px 5px rgba(0,0,0,0.3)';
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            showSlide(currentIndex);
+            resetAutoSlide();
+        }
+
+        function currentSlide(index) {
+            currentIndex = index;
+            showSlide(currentIndex);
+            resetAutoSlide();
+        }
+
+        function autoSlide() {
+            currentIndex++;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            showSlide(currentIndex);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(autoSlide, 6000);
+        }
+
+        autoSlideInterval = setInterval(autoSlide, 6000);
+
+        // Button Hover Effects
+        let primaryBtns = document.querySelectorAll('.primary-btn');
+        let secondaryBtns = document.querySelectorAll('.secondary-btn');
+
+        primaryBtns.forEach(function(btn) {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) translateY(-2px)';
+                this.style.background = '#5B8C29';
+                this.style.boxShadow = '0 6px 25px rgba(91,140,41,0.6)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+                this.style.background = '#7BB640';
+                this.style.boxShadow = '0 4px 20px rgba(123,182,64,0.5)';
+            });
+        });
+
+        secondaryBtns.forEach(function(btn) {
+            btn.addEventListener('mouseenter', function() {
+                this.style.background = '#FFFFFF';
+                this.style.color = '#1D3E6E';
+                this.style.transform = 'scale(1.05) translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.background = 'transparent';
+                this.style.color = '#FFFFFF';
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        // Arrow Hover Effects
+        let navArrows = document.querySelectorAll('.nav-arrow');
+        navArrows.forEach(function(arrow) {
+            arrow.addEventListener('mouseenter', function() {
+                this.style.background = '#7BB640';
+                this.style.borderColor = '#7BB640';
+                this.style.boxShadow = '0 4px 15px rgba(123,182,64,0.5)';
+            });
+            
+            arrow.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(29,62,110,0.7)';
+                this.style.borderColor = 'rgba(255,255,255,0.3)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Touch Support for Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('heroSlider').addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('heroSlider').addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Mobile Responsiveness for Overview Section
+        function handleResponsive() {
+            let overviewSection = document.querySelector('[style*="grid-template-columns: 1fr 1fr"]');
+            if (overviewSection && window.innerWidth < 768) {
+                overviewSection.style.gridTemplateColumns = '1fr';
+            } else if (overviewSection) {
+                overviewSection.style.gridTemplateColumns = '1fr 1fr';
+            }
+        }
+
+        handleResponsive();
+        window.addEventListener('resize', handleResponsive);
+    </script>
+ 
+
+
+ <!-- 1 hero section -->
+<!-- Additional Content Section -->
+    <section style="background-color: #F5F5F5; padding: 80px 40px; text-align: center;">
+        <h2 style="color: #FF0099; font-size: 2.5rem; margin-bottom: 20px;color: #b31248">Our Services </h2>
+        <p style="color: #333333; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.6;">
+            We are dedicated to ensuring every child in India has access to education, healthcare, and a safe environment to grow and thrive. Join us in our mission to create brighter futures for the next generation.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px;">
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #FF6600; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i></div>
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Education</h3>
+                <p style="color: #333333;">Providing quality education to underprivileged children across India.</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #66CC33; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-heartbeat"></i></div>
+                <h3 style="color: #66CC33; margin-bottom: 15px;">Healthcare</h3>
+                <p style="color: #333333;">Ensuring access to proper healthcare and nutrition for all children.</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #FFCC00; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-home"></i></div>
+                <h3 style="color: #FFCC00; margin-bottom: 15px;">Safe Environment</h3>
+                <p style="color: #333333;">Creating safe spaces where children can play, learn and grow.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 2 hero section -->
+       <!-- Hero Section Start -->
+<section style="
+    position:relative;
+    width:100%;
+    height:20vh; /* Desktop में full hero */
+    min-height:400px; /* Minimum height for mobile */
+    background:url('https://media.istockphoto.com/id/530008463/photo/man-and-woman-clasping-hands-tenderly.jpg?s=612x612&w=0&k=20&c=uWyYcdtDyAf8Y-NoCRTy_oBbbmWxI-O9t6RdxaB1aQg=') center center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column; /* Mobile friendly stacking */
+    text-align:center;
+">
+    <!-- Overlay -->
+    <div style="
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,0.5);
+        z-index:1;
+    "></div>
+
+    <!-- Content -->
+    <div style="
+        position:relative;
+        color:#fff;
+        max-width:700px;
+        padding:20px;
+        z-index:2;
+    ">
+        <h1 style="
+            font-size:2.2rem; 
+            font-weight:700; 
+            line-height:1.3; 
+            margin-bottom:15px;
+color: rgb(237, 105, 57);
+        ">
+             Our Goal: An Educated and Empowered Society
+        </h1>
+
+        <h2 style="font-size:1.1rem; min-height:50px; margin-bottom:25px;">
+            <span id="typing-text" style="border-right:3px solid #fff;white-space:nowrap;overflow:hidden;display:inline-block;"></span>
+        </h2>
+
+         <button style="
+    background-color:#ff4081;
+    color:#fff;
+    padding:12px 20px;
+    font-size:1rem;
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+"
+onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#e73370';"
+onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#ff4081';"
+onclick="window.location.href='./contact.html';">
+    Contact Us
+</button>
+
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<script>
+window.onload = function() {
+    const texts = [
+        "Move forward for women empowerment",
+        "Provide education to underprivileged children",
+        "Help widows and differently-abled individuals",
+        "Offer free competitive exam coaching to youth ",
+        "Participate in social service and noble causes"
+    ];
+    let count = 0, index = 0;
+
+    (function type(){
+        if(count === texts.length) count = 0;
+        let currentText = texts[count];
+        let letter = currentText.slice(0, ++index);
+        document.getElementById('typing-text').textContent = letter;
+        if(letter.length === currentText.length){
+            count++;
+            index = 0;
+            setTimeout(type, 1000);
+        } else {
+            setTimeout(type, 100);
+        }
+    }());
+};
+</script>
+
+  <!-- end 2 hero section -->  
+
+
+
+  <!-- footer -->
+    <!-- footer befor iamges -->
+ 
+
+<!-- footer  -->
+ <!-- Footer Section -->
+ <!-- footer  -->
+<footer style=" background-color: #1a1a1a;
+color: #FF0099; /* or white */
+ color: #fff; padding: 40px 0 0 0; margin-top: 50px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 30px;">
+
+    <!-- Footer Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin-bottom: 25px;">
+      
+      <!-- Company Info Section -->
+      <div style="min-width: 220px;">
+        <h3 style="  color: #b31248; font-size: 1.1rem; margin-bottom: 12px; font-weight: 700;"> SAKAR SEVA</h3>
+        <p style="line-height: 1.6; color: #d4d4d4; font-size: 0.85rem; margin-bottom: 15px;">
+          Positive thinking, a brilliant future. Join Sakaar Seva Foundation in serving the society.
+        </p>
+
+        <!-- Social Media Icons -->
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+          <a href="https://www.instagram.com" target="_blank" style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='#7BB640'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-instagram" style="font-size: 1rem;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/mantras-innovation-solutions-private-limited/" target="_blank" style="width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='#7BB640'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-linkedin-in" style="font-size: 1rem;"></i>
+          </a>
+        </div>
+      </div>
+
+       <!-- <div>
+        <h3 style="  color: #b31248; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700;">Our Projects</h3> -->
+        <!-- <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px;"><a href="./servicesEnviroService.html" style="color: #d4d4d4; text-decoration: none; display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Environmental Services</a></li>
+          <li style="margin-bottom: 8px;"><a href="./servicesSustainability.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Sustainability Services</a></li>
+          <li style="margin-bottom: 8px;"><a href="./servicesOtherLegal.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Other Legal Compliance Services</a></li>
+           
+          <li style="margin-bottom: 8px;"><a href="./servicesCompliances.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Consent Management and Compliance</a></li>
+           
+          <li style="margin-bottom: 8px;"><a href="./environmentalMonitoring.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Environmental Monitoring</a></li>
+        </ul> -->
+      <!-- </div> -->
+
+      <!-- Our Products -->
+      <!-- <div>
+        <h3 style="  color: #b31248; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700;"> Upcoming Projects</h3>
+          <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:8px;"><a href="./ProductsEfflunet.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>ETP Plants</a></li>
+          <li style="margin-bottom:8px;"><a href="./productsSewagePlants.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>STP Plants</a></li>
+          <li style="margin-bottom:8px;"><a href="./productsDischanrge.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>ZLD Plants</a></li>
+          <li style="margin-bottom:8px;"><a href="./productsRoUf.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>RO+UF Plants</a></li>
+          <li style="margin-bottom:8px;"><a href="./productsSoftners.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Water Softeners</a></li>
+          <li style="margin-bottom:8px;"><a href="./productsDmPlants.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>DM Plants</a></li>
+        
+          <li style="margin-bottom:8px;"><a href="./productsConverters.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Organic Waste Water Converter</a></li>
+        <li style="margin-bottom:8px;"><a href="./airPollutionControl.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Air Pollution Control Equipment</a></li>
+        
+        </ul> -->
+      <!-- </div> -->  
+      <!-- Quick Links -->
+      <div>
+        <h3 style=" color: #b31248;font-size:1.05rem;margin-bottom:12px;font-weight:700;">Quick Links</h3>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:8px;white-space: nowrap;"><a href="./index.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Home</a></li>
+          <li style="margin-bottom:8px;white-space: nowrap;"><a href="./aboutus.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>About Us</a></li>
+          <li style="margin-bottom:8px;white-space: nowrap;"><a href="./projects1.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Our Projects </a></li>
+          <li style="margin-bottom:8px;white-space: nowrap;"><a href="./upcomingpro.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i> Upcoming Projects</a></li>
+          <li style="margin-bottom:8px;white-space: nowrap;"><a href="./contact.html" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Contact Us</a></li>
+          <!-- <li style="margin-bottom:8px;"><a href="#privacy" style="color:#d4d4d4;text-decoration:none;display:flex;align-items:center;font-size:0.85rem;transition:0.3s;" onmouseover="this.style.color='#7BB640';this.style.paddingLeft='5px'" onmouseout="this.style.color='#d4d4d4';this.style.paddingLeft='0'"><i class="fas fa-chevron-right" style="font-size:0.6rem;margin-right:8px;color:#7BB640;"></i>Privacy Policy</a></li> -->
+        </ul>
+      </div>
+
+      <!-- Address Section -->
+      <div>
+        <h3 style="  color: #b31248;font-size:1.05rem;margin-bottom:12px;font-weight:700;">Corporate Office</h3>
+        <p style="color:#d4d4d4;font-size:0.85rem;line-height:1.6;margin:0;">
+           SAKAAR SEWA FOUNDATION</strong><br>
+        H.No. 100.101, Ram Nagar Annex,<br>
+        Vikas Nagar, Dewas,<br>
+        Dewas-455001, Madhya Pradesh<br><br>
+          📞 <a href="tel:+91 9850864141" style="  color: #b31248; text-decoration:none;"> 
++91 9244989746</a><br>
+  📧 <a href="mailto:info@planetenviro.in" style="  color: #b31248; text-decoration:none;">Sakarsewango@gmail.com </a>
+
+        </p>
+      </div>
+         
+    </div>
+ 
+     
+  </div>
+
+  <footer style=" background-color: #1a1a1a;
+color: #FF0099; /* or white */
+ text-align:center; padding:15px 10px; font-size:clamp(12px, 2vw, 15px); line-height:1.5; width:100%;">
+  <div style="max-width:1200px; margin:auto;">
+    <p style="margin:0; color:#FFFFFF;">
+      © <span id="year"></span> 
+      <span style="font-weight:600;  color: #b31248;">Sakar Seva </span>. 
+      All Rights Reserved.
+    </p>
+    <p style="margin:5px 0 0; color:#9E9E9E; font-size:clamp(11px, 1.8vw, 13px);">
+      Designed & Maintained by <span style="  color: #b31248;"> Sakar Seva Team</span>
+    </p>
+  </div>
+</footer>
+
+<!-- Auto Year Script -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</footer>
+
+
+<style>
+  /* Mobile Responsive Footer Styles */
+  @media(max-width: 768px){
+    footer {
+      padding: 30px 0 0 0 !important;
+      margin-top: 40px !important;
+    }
+    footer > div {
+      padding: 0 20px !important;
+    }
+    footer > div > div:first-child {
+      grid-template-columns: 1fr !important;
+      gap: 25px !important;
+    }
+    footer h3 {
+      font-size: 1rem !important;
+      margin-bottom: 10px !important;
+    }
+    footer p {
+      font-size: 0.82rem !important;
+      line-height: 1.5 !important;
+    }
+    footer a {
+      font-size: 0.82rem !important;
+    }
+    footer a[href="#quote-form"] {
+      padding: 10px 28px !important;
+      font-size: 0.9rem !important;
+    }
+  }
+  
+  @media(max-width: 480px){
+    footer {
+      padding: 25px 0 0 0 !important;
+      margin-top: 35px !important;
+    }
+    footer > div {
+      padding: 0 15px !important;
+    }
+    footer > div > div:first-child {
+      gap: 20px !important;
+    }
+    footer h3 {
+      font-size: 0.95rem !important;
+      margin-bottom: 10px !important;
+    }
+    footer p {
+      font-size: 0.8rem !important;
+    }
+    footer a {
+      font-size: 0.8rem !important;
+    }
+    footer li {
+      margin-bottom: 7px !important;
+    }
+    footer a[href="#quote-form"] {
+      padding: 10px 25px !important;
+      font-size: 0.88rem !important;
+    }
+    footer > div > div:nth-child(2) {
+      padding: 18px 0 !important;
+    }
+    footer > div > div:last-child {
+      padding: 15px 0 !important;
+    }
+    footer > div > div:last-child p {
+      font-size: 0.78rem !important;
+    }
+  }
+</style>
+
+
+<!-- footer starts -->
+  
+ 
+
+</body>
+</html>
+ 

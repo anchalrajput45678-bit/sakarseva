@@ -1,0 +1,948 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Enviro Services - Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #FFFFFF;
+        }
+
+       /* Top Bar */
+.top-bar {
+    background: hsl(340, 77%, 65%);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-item:hover {
+    color: black;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-quote,
+.btn-brochure {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-quote {
+    background: #7BB640;
+    color: #FFFFFF;
+}
+
+.btn-quote:hover {
+    background: black;
+}
+
+.btn-brochure {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-brochure:hover {
+    background: #FFFFFF;
+    color: #1D3E6E;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.social-links a {
+    color: #FFFFFF;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #7BB640;
+}
+
+/* ✅ Mobile View Update */
+@media (max-width: 768px) {
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contact-item.email {
+        justify-content: flex-start;
+    }
+
+    .contact-item.phone {
+        justify-content: flex-end;
+    }
+
+    .top-buttons {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+        /* Main Navbar */
+        .navbar {
+            background: #FFFFFF;
+            padding: 12px 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+        }
+
+          .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            padding-right: 88px;
+
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #1D3E6E;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #7BB640;
+        }
+
+        .nav-link i {
+            font-size: 12px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #FFFFFF;
+            min-width: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            color: #333333;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #7BB640;
+            color: #FFFFFF;
+            padding-left: 25px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #1D3E6E;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 1024px) {
+            .top-bar {
+                padding: 8px 15px;
+            }
+
+            .contact-info {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .social-links {
+                margin-left: 10px;
+            }
+
+            .social-links a {
+                font-size: 16px;
+            }
+
+            .top-buttons {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: #FFFFFF;
+                width: 280px;
+                height: 100vh;
+                padding: 80px 20px 20px;
+                box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 15px 10px;
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: #f8f9fa;
+                border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                margin-top: 0;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+                max-height: 500px;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 25px;
+                font-size: 13px;
+            }
+
+             .mobile-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 10px;
+                
+                border-top: 2px solid #1D3E6E;
+            }
+
+            .mobile-buttons .btn-quote,
+            .mobile-buttons .btn-brochure {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                color: #1D3E6E;
+                cursor: pointer;
+                display: none;
+            }
+
+            .nav-menu.active ~ .close-menu {
+                display: block;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info {
+                gap: 10px;
+            }
+
+            .contact-item {
+                font-size: 11px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 14px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .nav-menu {
+                width: 250px;
+            }
+        }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+    <div class="contact-info">
+        <a href="mailto:Sakarsewango@gmail.com" class="contact-item email">
+            <i class="fas fa-envelope"></i>
+            <span> Sakarsewango@gmail.com</span>
+        </a>
+        <a href="tel:+919860732366" class="contact-item phone">
+            <i class="fas fa-phone"></i>
+            <span> +91 9244989746</span>
+        </a>
+    </div>
+    <div class="top-buttons">
+        <!-- <a href="./Getaquote.html" class="btn-quote">Get a Quote</a>
+        <a href="./brochure.html" class="btn-brochure">Get Brochure</a> -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/mantras-innovation-solutions-private-limited/posts/?feedView=all " target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/planetenviro/?igsh=d3U0OGx0YTBpa2lz#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="./imagelogo.png" alt="Planet Enviro Services">
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#about" class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./aboutus.html">About Us</a></li>
+                        <li><a href="./ourMission.html">Our Mission</a></li>
+                        <li><a href="./ourVision.html">Our Vision</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="nav-item" >
+                    <a href="./projects1.html" class="nav-link" style="white-space: nowrap;">
+                        Our Projects 
+                        <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./expertiseEcEIa.html"> 
+    </a></li>
+                        <li><a href="./expertiseSustainability.html"> Sustainability Consulting</a></li>
+                        <li><a href="./expertiseEdDiligence.html">Environmental Due Diligence </a></li>
+                        <li><a href="./expertiseCrz.html">CRZ Clearance </a></li>
+                        <li><a href="./expertiseCompliance.html">Environmental Compliance </a></li>
+                        <li><a href="./expertiseTesting.html">Environmental Monitoring and Testing </a></li>
+                        <li><a href="./expertiseSix.html">Six Monthly Post EC Compliance </a></li>
+                        <li><a href="./expertiseWaterSolu.html">Water and Wastewater Treatment Solutions </a></li>
+                    </ul> -->
+                </li>
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./upcomingpro.html" class="nav-link">
+                        Upcoming Projects
+                         <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./servicesEnviroService.html">Environmental Services </a></li>
+                        <li><a href="./servicesCompliances.html"> Consent Management and Compliances</a></li>
+                        <li><a href="./servicesOtherLegal.html">Other Legal Compliances Services </a></li>
+                        <li><a href="./servicesSustainability.html">Sustainability Services </a></li>
+                        <li><a href="./environmentalMonitoring.html">Environmental Monitoring </a></li>
+                         <li><a href="#monitoring">Environmental Monitoring</a></li> -->
+                    <!-- </ul> --> 
+                </li>
+
+                 
+
+                <!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="#we-provide" class="nav-link">
+                          <i class="fas fa-chevron-down"></i> -->
+                    <!-- </a> -->
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="./ProductsEfflunet.html"> Effluent Treatment Plants (ETP)</a></li>
+                        <li><a href="./productsSewagePlants.html">Sewage Treatment Plants (STP)</a></li>
+                        <li><a href="./productsDischanrge.html"> Zero Liquid Discharge (ZLD)</a></li>
+                        <li><a href="./productsRoUf.html"> RO+UF Plants</a></li>
+                        <li><a href="./productsSoftners.html"> Water Softeners</a></li>
+                        <li><a href="./productsDmPlants.html">DM Plants</a></li>
+                        <a href="./productsConverters.html "> Organic Waste Converters</a>
+          <a href="./airPollutionControl.html"> Air Pollution Control Equipment </a>
+          
+                    </ul> -->
+                </li>
+
+<!-- <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./weProvide.html" class="nav-link"> We Provide</a>
+                </li> -->
+                 
+                
+
+                <li class="nav-item" style="white-space: nowrap;">
+                    <a href="./contact.html" class="nav-link">Contact Us</a>
+                </li>
+
+               
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('overlay');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Mobile dropdown toggle
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Close menu when clicking nav links on mobile
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-link') || !e.target.closest('.nav-item').querySelector('.dropdown-menu')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    </script>
+
+<!-- about section -->
+  <!-- Hero Section -->
+<section style="
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    max-height: 500px;
+    background-image: url(' https://img.freepik.com/premium-photo/hands-cut-out-multicolored-paper-orange-background-place-text_185193-133301.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    ">
+    <!-- Overlay Text -->
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        text-align: center;
+        padding: 0 10px;
+        ">
+        About Us
+    </div>
+</section>
+
+<!-- About Section -->
+<section style="max-width: 1300px; margin: 50px auto; padding: 0 20px; display: flex; align-items: center; flex-wrap: wrap; gap: 40px;">
+    
+    <!-- Text Content -->
+    <div style="flex: 1; min-width: 300px;">
+        <h2 style="font-size: 2.5rem; color: #E94097; margin-bottom: 20px;">About Sakar Seva</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 20px;">
+            <!-- We are dedicated to creating a better world through education, healthcare, and community empowerment. 
+            Our programs reach thousands of children and families, transforming lives and building sustainable futures. -->
+       "Every blessed human has a kind side and wants to help the less fortunate-but often doesn't know where to start or how
+to find the right path."
+The SS Foundation, established in 2025, is a registered non-profit, non-governmental organization dedicated to
+community development, child welfare, education, and healthcare initiatives. 
+       
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #555;">
+            <!-- Join us in our journey to make a lasting impact. Every small effort counts towards building a brighter tomorrow. -->
+         We believe that education is both a means
+and an end to a better life: a means because it empowers individuals to earn their livelihood, and an end because it
+raises awareness about a wide range of social issues. As an environment-friendly, socio-economic, and cultural
+development organization, we are committed to improving the lives and livelihoods of disadvantaged people across
+Bharat. Our inclusive efforts span across multiple sectors including education, healthcare, elderly care, social and
+economic empowerment, food and livelihood security, and water and sanitation.
+        </p>
+    </div>
+
+    <!-- Image -->
+    <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center;">
+        <img src="./imageabout.png" 
+             alt="About Image" 
+             style="width: 100%; max-width: 450px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+    </div>
+</section>
+
+<!-- Responsive -->
+<style>
+@media (max-width: 968px) {
+    section[style*="display: flex"] { flex-direction: column; text-align: center; gap: 30px; }
+    section[style*="display: flex"] div { text-align: center; }
+    section[style*="display: flex"] img { max-width: 80%; }
+}
+@media (max-width: 480px) {
+    h2 { font-size: 2rem !important; }
+    p { font-size: 1rem !important; }
+}
+</style>
+<!-- end about section -->
+
+
+
+<!-- Hero Section -->
+<section style="max-width: 1200px; margin: 50px auto; padding: 0 20px; display: flex; align-items: center; min-height: 80vh; background: #FFFFFF;">
+    <!-- Left Side - 3D Image Slider -->
+    <div style="flex: 1; position: relative; display: flex; justify-content: center; align-items: center; min-height: 400px;">
+        <div class="slider-3d" style="position: relative; width: 350px; height: 350px; perspective: 1200px;">
+            <!-- Slides -->
+            <div class="slide active" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: url('https://staticimg.amarujala.com/assets/images/2018/06/02/environment_1527952621.jpeg?w=414&dpr=1.0&q=80') center/cover no-repeat; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: perspective(1000px) rotateY(-10deg) rotateX(10deg); transition: all 0.8s ease; z-index:3;">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.5)); padding: 15px; color: #FFFFFF;">
+                    <!-- <h3 style="margin:0; font-size:1.1rem; color:#E94097;">Education for All</h3>
+                    <p style="margin:3px 0 0; font-size:0.9rem; color:#FBB040;">Helping children reach their potential</p> -->
+                </div>
+            </div>
+
+            <div class="slide" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: url('https://www.voiceofbihar.in/wp-content/uploads/2025/07/1751989432128.webp') center/cover no-repeat; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: perspective(1000px) rotateY(-10deg) rotateX(10deg); transition: all 0.8s ease; z-index:2;">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.5)); padding: 15px; color: #FFFFFF;">
+                    <!-- <h3 style="margin:0; font-size:1.1rem; color:#E94097;">Women Empowerment</h3>
+                    <p style="margin:3px 0 0; font-size:0.9rem; color:#FBB040;">Building stronger communities</p> -->
+                </div>
+            </div>
+
+            <div class="slide" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt6YGDXyOEVn6bEf1w_4CJBuxjXq2R8RC9GA&s') center/cover no-repeat; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: perspective(1000px) rotateY(-10deg) rotateX(10deg); transition: all 0.8s ease; z-index:1;">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.5)); padding: 15px; color: #FFFFFF;">
+                    <!-- <h3 style="margin:0; font-size:1.1rem; color:#E94097;">Healthcare Access</h3>
+                    <p style="margin:3px 0 0; font-size:0.9rem; color:#FBB040;">Saving lives every day</p> -->
+                </div>
+            </div>
+
+            <div class="slide" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: url(' https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmdvfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000') center/cover no-repeat; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: perspective(1000px) rotateY(-10deg) rotateX(10deg); transition: all 0.8s ease; z-index:0;">
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.5)); padding: 15px; color: #FFFFFF;">
+                    <!-- <h3 style="margin:0; font-size:1.1rem; color:#E94097;">Food Security</h3>
+                    <p style="margin:3px 0 0; font-size:0.9rem; color:#FBB040;">No child should sleep hungry</p> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls" style="position: absolute; bottom: -50px; left: 0; right: 0; display: flex; justify-content: center; gap: 15px; z-index: 10;">
+            <button class="slider-prev" style="background: #1C498E; color: #FFFFFF; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slider-dots" style="display: flex; gap: 10px; align-items: center;">
+                <span class="dot active" style="width: 12px; height: 12px; border-radius: 50%; background: #FBB040; cursor:pointer;"></span>
+                <span class="dot" style="width: 12px; height: 12px; border-radius: 50%; background: #ccc; cursor:pointer;"></span>
+                <span class="dot" style="width: 12px; height: 12px; border-radius: 50%; background: #ccc; cursor:pointer;"></span>
+                <span class="dot" style="width: 12px; height: 12px; border-radius: 50%; background: #ccc; cursor:pointer;"></span>
+            </div>
+            <button class="slider-next" style="background: #1C498E; color: #FFFFFF; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Right Side - Content -->
+    <div style="flex: 1; padding-left: 50px;">
+        <h1 style=" font-size: 2.5rem; color: #E94097; margin-bottom: 20px;">
+            Transforming <span style="color: #FBB040;">Lives</span>, Building <span style="color: #35C1BA;">Futures</span>
+        </h1>
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6; margin-bottom: 30px;">
+            Join us in our mission to create lasting change. Through education, healthcare, and empowerment programs, we're building a brighter future for those in need.
+        </p>
+        <div style="display: flex; gap: 20px; margin-bottom: 40px; flex-wrap: wrap;">
+             <!-- Contact & Email Buttons -->
+ <button 
+    style="
+        background: linear-gradient(45deg, #E94097, #F15BB5);
+        color: #fff;
+        border: none;
+        padding: 15px 35px;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    "
+    onclick="window.location.href='tel:+91 9244989746';"
+    onmouseover="this.style.transform='scale(1.05)';"
+    onmouseout="this.style.transform='scale(1)';"
+>
+    <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Contact Us
+</button>
+<button 
+    style="
+        background: transparent;
+        color: #E94097;
+        border: 2px solid #E94097;
+        padding: 15px 35px;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    "
+    onclick="window.location.href='mailto:Sakarsewango@gmail.com';"
+    onmouseover="this.style.backgroundColor='#E94097'; this.style.color='#fff'; this.style.transform='scale(1.05)';"
+    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#E94097'; this.style.transform='scale(1)';"
+>
+    <i class="fas fa-envelope" style="margin-right: 10px;"></i> Email Us
+</button>
+
+        </div>
+        <!-- Stats -->
+        
+    </div>
+</section>
+
+<!-- Responsive -->
+<style>
+@media (max-width: 968px) {
+    section { flex-direction: column; text-align: center; }
+    .slider-3d { margin-bottom: 40px; width: 300px; height: 300px; }
+    div[style*="padding-left: 50px"] { padding-left: 0; margin-top: 30px; }
+    h1 { font-size: 2.8rem; }
+}
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .slider-3d { width: 250px; height: 250px; }
+    div[style*="display: flex; gap: 20px"] { flex-direction: column; align-items: center; }
+    button { width: 250px; }
+}
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    .slider-3d { width: 200px; height: 200px; }
+    div[style*="display: flex; gap: 30px"] { flex-direction: column; gap: 15px; }
+}
+</style>
+
+<!-- JS Slider -->
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(n) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = '0';
+            slide.style.zIndex = '1';
+            slide.style.transform = 'perspective(1000px) rotateY(-10deg) rotateX(10deg) scale(1)';
+            dots[i].classList.remove('active');
+            dots[i].style.background = '#ccc';
+        });
+
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].style.opacity = '1';
+        slides[currentSlide].style.zIndex = '3';
+        slides[currentSlide].style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.05)';
+        dots[currentSlide].classList.add('active');
+        dots[currentSlide].style.background = '#FBB040';
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 4000);
+    }
+
+    function pauseSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    nextBtn.addEventListener('click', () => { pauseSlideShow(); nextSlide(); startSlideShow(); });
+    prevBtn.addEventListener('click', () => { pauseSlideShow(); prevSlide(); startSlideShow(); });
+    dots.forEach((dot, index) => { 
+        dot.addEventListener('click', () => { pauseSlideShow(); showSlide(index); startSlideShow(); }); 
+    });
+
+    const sliderContainer = document.querySelector('.slider-3d');
+    sliderContainer.addEventListener('mouseenter', pauseSlideShow);
+    sliderContainer.addEventListener('mouseleave', startSlideShow);
+
+    // Initialize
+    showSlide(0);
+    startSlideShow();
+});
+</script>
+
+<!-- fooer se upper vala -->
+    <!-- Hero Section Start -->
+<section style="
+    position:relative;
+    width:100%;
+    height:20vh; /* Desktop में full hero */
+    min-height:400px; /* Minimum height for mobile */
+    background:url('https://media.istockphoto.com/id/530008463/photo/man-and-woman-clasping-hands-tenderly.jpg?s=612x612&w=0&k=20&c=uWyYcdtDyAf8Y-NoCRTy_oBbbmWxI-O9t6RdxaB1aQg=') center center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column; /* Mobile friendly stacking */
+    text-align:center;
+">
+    <!-- Overlay -->
+    <div style="
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,0.5);
+        z-index:1;
+    "></div>
+
+    <!-- Content -->
+    <div style="
+        position:relative;
+        color:#fff;
+        max-width:700px;
+        padding:20px;
+        z-index:2;
+    ">
+        <h1 style="
+            font-size:2.2rem; 
+            font-weight:700; 
+            line-height:1.3; 
+            margin-bottom:15px;
+color: rgb(237, 105, 57);
+        ">
+             Our Goal: An Educated and Empowered Society
+        </h1>
+
+        <h2 style="font-size:1.1rem; min-height:50px; margin-bottom:25px;">
+            <span id="typing-text" style="border-right:3px solid #fff;white-space:nowrap;overflow:hidden;display:inline-block;"></span>
+        </h2>
+
+         <button style="
+    background-color:#ff4081;
+    color:#fff;
+    padding:12px 20px;
+    font-size:1rem;
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+"
+onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#e73370';"
+onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#ff4081';"
+onclick="window.location.href='./contact.html';">
+    Contact Us
+</button>
+
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<script>
+window.onload = function() {
+    const texts = [
+        "Move forward for women empowerment",
+        "Provide education to underprivileged children",
+        "Help widows and differently-abled individuals",
+        "Offer free competitive exam coaching to youth ",
+        "Participate in social service and noble causes"
+    ];
+    let count = 0, index = 0;
+
+    (function type(){
+        if(count === texts.length) count = 0;
+        let currentText = texts[count];
+        let letter = currentText.slice(0, ++index);
+        document.getElementById('typing-text').textContent = letter;
+        if(letter.length === currentText.length){
+            count++;
+            index = 0;
+            setTimeout(type, 1000);
+        } else {
+            setTimeout(type, 100);
+        }
+    }());
+};
+</script>
+
+  <!-- end 2 hero section --> 
