@@ -1,0 +1,974 @@
+ <!-- end hero section -->
+  
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary-pink: #FF0099;
+            --primary-orange: #FF6600;
+            --primary-green: #66CC33;
+            --primary-blue: #0099FF;
+            --primary-yellow: #FFCC00;
+            --dark-text: #333333;
+            --light-bg: #E6F3FF;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+            color: var(--dark-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 153, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 102, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(102, 204, 51, 0.05) 0%, transparent 30%);
+            z-index: -1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 20s infinite linear;
+            filter: blur(1px);
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-pink);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            background: var(--primary-orange);
+            top: 70%;
+            left: 85%;
+            animation-delay: -5s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-green);
+            top: 20%;
+            left: 90%;
+            animation-delay: -10s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            background: var(--primary-yellow);
+            top: 80%;
+            left: 10%;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(20px, -40px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-10px, -20px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                transform: translate(-30px, 30px) rotate(270deg) scale(1.05);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1);
+            }
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-pink);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-heading {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--dark-text);
+            margin-top: 0.5rem;
+        }
+
+        .projects-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--primary-orange), var(--primary-green));
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.8rem;
+            width: 100%;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--primary-orange), var(--primary-green), var(--primary-blue));
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card:hover::before {
+            left: 0;
+        }
+
+        .project-number {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-pink);
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features li {
+            padding: 0.3rem 0;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-features li i {
+            color: var(--primary-green);
+        }
+
+        .project-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-orange));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 0, 153, 0.3);
+        }
+
+        .project-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 153, 0.4);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-orange));
+            color: white;
+        }
+
+        .cta-button.secondary {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+            
+            .stats-container {
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem;
+            }
+            
+            .main-heading {
+                font-size: 2rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+ 
+     
+        <div class="projects-container">
+            <h2 class="section-title">Our Business Ventures</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-home"></i> 01. KUTIR UDYOG</div>
+                    <h3 class="project-title">Cottage Industry Development</h3>
+                    <p class="project-description">Promoting traditional cottage industries with modern techniques to empower rural artisans and preserve cultural heritage.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Sustainable livelihood creation</li>
+                        <li><i class="fas fa-check"></i> Skill development programs</li>
+                        <li><i class="fas fa-check"></i> Market linkage support</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-hands"></i> 02. HANDICRAFT UDYOG</div>
+                    <h3 class="project-title">Artisan Empowerment</h3>
+                    <p class="project-description">Reviving and promoting traditional handicrafts through design innovation and global market access.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Design innovation support</li>
+                        <li><i class="fas fa-check"></i> Export market access</li>
+                        <li><i class="fas fa-check"></i> Fair trade practices</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-leaf"></i> 03. DONA-PATTAL UDYOG</div>
+                    <h3 class="project-title">Eco-Friendly Products</h3>
+                    <p class="project-description">Manufacturing biodegradable utensils and products to reduce plastic waste and promote environmental sustainability.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> 100% biodegradable products</li>
+                        <li><i class="fas fa-check"></i> Rural employment generation</li>
+                        <li><i class="fas fa-check"></i> Waste reduction initiative</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-gem"></i> 04. MANGALSUTRA & MALA UDYOG</div>
+                    <h3 class="project-title">Traditional Jewelry Making</h3>
+                    <p class="project-description">Crafting traditional Indian jewelry with contemporary designs while preserving cultural significance.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Traditional craftsmanship</li>
+                        <li><i class="fas fa-check"></i> Modern design integration</li>
+                        <li><i class="fas fa-check"></i> Cultural preservation</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-recycle"></i> 05. BEKAR SE AAKAR PROJECT</div>
+                    <h3 class="project-title">Upcycling Initiative</h3>
+                    <p class="project-description">Transforming waste materials into valuable products through creative upcycling and recycling techniques.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Waste to wealth conversion</li>
+                        <li><i class="fas fa-check"></i> Creative product design</li>
+                        <li><i class="fas fa-check"></i> Environmental conservation</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-traffic-light"></i> 06. ROAD SAFETY PROJECT</div>
+                    <h3 class="project-title">Community Safety Initiative</h3>
+                    <p class="project-description">Promoting road safety awareness and implementing safety measures to reduce accidents in communities.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Safety awareness campaigns</li>
+                        <li><i class="fas fa-check"></i> Infrastructure improvements</li>
+                        <li><i class="fas fa-check"></i> Community engagement</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-tshirt"></i> 07. TEDDY BEAR PROJECT</div>
+                    <h3 class="project-title">Soft Toy Manufacturing</h3>
+                    <p class="project-description">Creating high-quality, safe soft toys for children while providing employment opportunities for women.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Child-safe materials</li>
+                        <li><i class="fas fa-check"></i> Women employment focus</li>
+                        <li><i class="fas fa-check"></i> Quality craftsmanship</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-book-open"></i> 08. PATHSHALA PROJECT</div>
+                    <h3 class="project-title">Educational Initiative</h3>
+                    <p class="project-description">Providing quality education and skill development programs to underprivileged children and youth.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Quality education access</li>
+                        <li><i class="fas fa-check"></i> Skill development programs</li>
+                        <li><i class="fas fa-check"></i> Digital literacy</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-female"></i> 09. SANITARY PAD PROJECT</div>
+                    <h3 class="project-title">Women's Health & Hygiene</h3>
+                    <p class="project-description">Manufacturing affordable, eco-friendly sanitary pads and promoting menstrual hygiene awareness.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Affordable hygiene products</li>
+                        <li><i class="fas fa-check"></i> Health awareness programs</li>
+                        <li><i class="fas fa-check"></i> Women entrepreneurship</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 10 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-seedling"></i> 10. ORGANIC FARMING</div>
+                    <h3 class="project-title">Sustainable Agriculture</h3>
+                    <p class="project-description">Promoting organic farming practices to ensure food security, environmental health, and farmer prosperity.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Chemical-free farming</li>
+                        <li><i class="fas fa-check"></i> Soil health improvement</li>
+                        <li><i class="fas fa-check"></i> Farmer training programs</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 11 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-microphone"></i> 11. AUDITION PROJECT</div>
+                    <h3 class="project-title">Talent Discovery Platform</h3>
+                    <p class="project-description">Creating opportunities for aspiring artists and performers through talent discovery and development programs.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Talent discovery platform</li>
+                        <li><i class="fas fa-check"></i> Skill enhancement</li>
+                        <li><i class="fas fa-check"></i> Performance opportunities</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 12 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-spa"></i> 12. BEAUTY PARLOUR TRAINING</div>
+                    <h3 class="project-title">Beauty & Wellness Skill Development</h3>
+                    <p class="project-description">Providing professional training in beauty and wellness services to create sustainable livelihood opportunities.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Professional skill training</li>
+                        <li><i class="fas fa-check"></i> Entrepreneurship support</li>
+                        <li><i class="fas fa-check"></i> Job placement assistance</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 13 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-lightbulb"></i> 13. LED-BULB ASSEMBLY</div>
+                    <h3 class="project-title">Green Technology Manufacturing</h3>
+                    <p class="project-description">Manufacturing energy-efficient LED lighting products to promote energy conservation and reduce carbon footprint.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Energy-efficient products</li>
+                        <li><i class="fas fa-check"></i> Technical skill development</li>
+                        <li><i class="fas fa-check"></i> Environmental conservation</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 14 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-pump-soap"></i> 14. CLEANING PRODUCTS UDYOG</div>
+                    <h3 class="project-title">Eco-Friendly Cleaning Solutions</h3>
+                    <p class="project-description">Manufacturing environmentally friendly cleaning products that are effective, affordable, and safe for users.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Eco-friendly formulations</li>
+                        <li><i class="fas fa-check"></i> Affordable pricing</li>
+                        <li><i class="fas fa-check"></i> Health & safety focus</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+                
+                <!-- Project 15 -->
+                <div class="project-card">
+                    <div class="project-number"><i class="fas fa-utensils"></i> 15. ORGANIC ACHAR, PAPAD, MASALA</div>
+                    <h3 class="project-title">Traditional Food Processing</h3>
+                    <p class="project-description">Producing traditional Indian food products using organic ingredients and preserving authentic recipes.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Organic ingredients</li>
+                        <li><i class="fas fa-check"></i> Traditional recipes</li>
+                        <li><i class="fas fa-check"></i> Hygienic processing</li>
+                    </ul>
+                    <!-- <a href="#" class="project-button">Explore Project</a> -->
+                </div>
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <script>
+        // Add interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.project-card');
+            const stats = document.querySelectorAll('.stat-item');
+            
+            // Add hover effects to cards
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add counting animation to stats
+            stats.forEach(stat => {
+                const numberElement = stat.querySelector('.stat-number');
+                const target = parseInt(numberElement.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    numberElement.textContent = Math.floor(current) + (target > 100 ? '+' : '');
+                }, 40);
+            });
+            
+            // Add scroll animation for cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+ 
+ <!-- footer se upper vala -->
+     
+
+<!-- footer se upper vala -->
+   <!-- end 4 navbar -->
+<!-- Footer Top Section with Image -->
+<div style="
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  text-align:center;
+  margin-bottom:3rem;
+">
+  <!-- Your Image -->
+  <img src="https://img.freepik.com/premium-photo/wallpaper-green-leaves-word-green-it_416902-55.jpg" 
+    alt="Footer Banner" 
+    style="
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
+    ">
+
+  <!-- Pink Transparent Overlay -->
+  <div style="
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(233, 7, 82, 0.7); /* pink with transparency */
+  "></div>
+
+  <!-- Text -->
+  <h2 id="footerBannerText" style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#FFFFFF;
+    font-size:2rem;
+    font-weight:700;
+    margin:0;
+    padding:0 12px;
+    line-height:1.4;
+    width:90%;
+  ">
+     "Together we can bring light to every life." <br>— Sakar Seva Foundation
+  </h2>
+</div>
+
+<script>
+  // Responsive text size for footer banner
+  function adjustFooterBannerText() {
+    const bannerText = document.getElementById('footerBannerText');
+    if (window.innerWidth <= 480) {
+      bannerText.style.fontSize = '0.9rem';
+      bannerText.style.lineHeight = '1.3';
+    } else if (window.innerWidth <= 768) {
+      bannerText.style.fontSize = '1.3rem';
+      bannerText.style.lineHeight = '1.3';
+    } else {
+      bannerText.style.fontSize = '2rem';
+      bannerText.style.lineHeight = '1.4';
+    }
+  }
+
+  window.addEventListener('load', adjustFooterBannerText);
+  window.addEventListener('resize', adjustFooterBannerText);
+</script>
+
+ <!-- FOOTER START -->
+    <footer style="background: #1a1a1a; color: #fff; padding: 3rem 1.5rem 1.5rem; border-top: 3px solid ">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Footer Content Grid -->
+            <div id="footerGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 2rem;">
+                
+                <!-- Section 1: SAKAR SEVA -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">SAKAR SEVA</h3>
+                    <p style="color: #b0b0b0; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.75rem;">Positive thinking, a brilliant future. Join Sakaar Seva Foundation in serving the society.</p>
+                    
+                    <!-- Social Icons -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(233, 30, 99, 0.1); border: 1px solid #e91e63; display: flex; align-items: center; justify-content: center; color: #e91e63; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-instagram" style="font-size: 1.1rem;"></i>
+                        </a>
+                        <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(233, 30, 99, 0.1); border: 1px solid #e91e63; display: flex; align-items: center; justify-content: center; color: #e91e63; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-linkedin-in" style="font-size: 1.1rem;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 2: Quick Links -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./index.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Home
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./aboutus.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>About Us
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./projects1.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Our Projects
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./upcomingpro.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Upcoming Projects
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./contact.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Corporate Office -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Corporate Office</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="color: #b0b0b0; margin-bottom: 1rem; font-size: 0.75rem;">
+                            <strong style="color: #fff;">SAKAAR SEWA FOUNDATION</strong>
+                        </li>
+                        <li style="color: #b0b0b0; margin-bottom: 1rem; line-height: 1.6; font-size: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>H.No. 100,101, Ram Nagar Annex, Vikas Nagar, Dewas, Dewas-455001, Madhya Pradesh
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <i class="fas fa-phone" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>
+                            <a href="tel:+919244989746" style="color: #b0b0b0; text-decoration: none; transition: color 0.3s ease; font-size: 0.75rem;">+91 9244989746</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>
+                            <a href="mailto:Sakarsewango@gmail.com" style="color:  #b0b0b0; text-decoration: none; transition: color 0.3s ease; font-size: 0.75rem;"> Sakarsewango@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div style="border-top: 1px solid rgba(233, 30, 99, 0.3); padding-top: 1.5rem; text-align: center;">
+                <p style="color: #b0b0b0; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                    © 2025 <a href="#" style="color: #e91e63; text-decoration: none; font-weight: 600;">Sakar Seva</a>. All Rights Reserved.
+                </p>
+                <p style="color: #888; font-size: 0.85rem;">
+                    Designed & Maintained by <a href="#" style="color: #e91e63; text-decoration: none;">Sakar Seva Team</a>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script>
+        // Responsive Grid Adjustment
+        function adjustFooterGrid() {
+            const footerGrid = document.getElementById('footerGrid');
+            if (window.innerWidth <= 768) {
+                footerGrid.style.gridTemplateColumns = '1fr';
+                footerGrid.style.gap = '2rem';
+            } else {
+                footerGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                footerGrid.style.gap = '3rem';
+            }
+        }
+
+        // Social Icons Hover Effect
+        const socialLinks = document.querySelectorAll('footer a[style*="border-radius: 50%"]');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.background = '#66cc33';
+                this.style.borderColor = '#66cc33';
+                this.style.color = '#fff';
+                this.style.transform = 'translateY(-3px)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(233, 30, 99, 0.1)';
+                this.style.borderColor = '#e91e63';
+                this.style.color = '#e91e63';
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Quick Links Hover Effect
+        const quickLinks = document.querySelectorAll('footer ul li a');
+        quickLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#66cc33';
+                this.style.paddingLeft = '0.5rem';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '#b0b0b0';
+                this.style.paddingLeft = '0';
+            });
+        });
+
+        // Bottom Links Hover Effect
+        const bottomLinks = document.querySelectorAll('footer div[style*="border-top"] a');
+        bottomLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.textDecoration = 'underline';
+                this.style.color = '#66cc33';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.textDecoration = 'none';
+                this.style.color = '#e91e63';
+            });
+        });
+
+        // Contact Links Hover Effect
+        const contactLinks = document.querySelectorAll('footer ul li a[href^="tel"], footer ul li a[href^="mailto"]');
+        contactLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#66cc33';
+            });
+            link.addEventListener('mouseleave', function() {
+                if (link.href.includes('mailto')) {
+                    this.style.color = '#e91e63';
+                } else {
+                    this.style.color = '#b0b0b0';
+                }
+            });
+        });
+
+        // Run on load and resize
+        window.addEventListener('load', adjustFooterGrid);
+        window.addEventListener('resize', adjustFooterGrid);
+    </script>
+
+</body>
+</html>

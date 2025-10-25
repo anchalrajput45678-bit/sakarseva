@@ -752,98 +752,243 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!-- footer se upper vala -->
-    <!-- Hero Section Start -->
-<section style="
-    position:relative;
-    width:100%;
-    height:20vh; /* Desktop में full hero */
-    min-height:400px; /* Minimum height for mobile */
-    background:url('https://media.istockphoto.com/id/530008463/photo/man-and-woman-clasping-hands-tenderly.jpg?s=612x612&w=0&k=20&c=uWyYcdtDyAf8Y-NoCRTy_oBbbmWxI-O9t6RdxaB1aQg=') center center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column; /* Mobile friendly stacking */
-    text-align:center;
+   
+
+<!-- footer se upper vala -->
+   <!-- end 4 navbar -->
+<!-- Footer Top Section with Image -->
+<div style="
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  text-align:center;
+  margin-bottom:3rem;
 ">
-    <!-- Overlay -->
-    <div style="
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background-color:rgba(0,0,0,0.5);
-        z-index:1;
-    "></div>
-
-    <!-- Content -->
-    <div style="
-        position:relative;
-        color:#fff;
-        max-width:700px;
-        padding:20px;
-        z-index:2;
+  <!-- Your Image -->
+  <img src="https://img.freepik.com/premium-photo/wallpaper-green-leaves-word-green-it_416902-55.jpg" 
+    alt="Footer Banner" 
+    style="
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
     ">
-        <h1 style="
-            font-size:2.2rem; 
-            font-weight:700; 
-            line-height:1.3; 
-            margin-bottom:15px;
-color: rgb(237, 105, 57);
-        ">
-             Our Goal: An Educated and Empowered Society
-        </h1>
 
-        <h2 style="font-size:1.1rem; min-height:50px; margin-bottom:25px;">
-            <span id="typing-text" style="border-right:3px solid #fff;white-space:nowrap;overflow:hidden;display:inline-block;"></span>
-        </h2>
+  <!-- Pink Transparent Overlay -->
+  <div style="
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(233, 7, 82, 0.7); /* pink with transparency */
+  "></div>
 
-         <button style="
-    background-color:#ff4081;
-    color:#fff;
-    padding:12px 20px;
-    font-size:1rem;
-    font-weight:600;
-    border:none;
-    border-radius:50px;
-    cursor:pointer;
-    transition:all 0.3s ease;
-"
-onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#e73370';"
-onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#ff4081';"
-onclick="window.location.href='./contact.html';">
-    Contact Us
-</button>
-
-    </div>
-</section>
-<!-- Hero Section End -->
+  <!-- Text -->
+  <h2 id="footerBannerText" style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#FFFFFF;
+    font-size:2rem;
+    font-weight:700;
+    margin:0;
+    padding:0 12px;
+    line-height:1.4;
+    width:90%;
+  ">
+     "Together we can bring light to every life." <br>— Sakar Seva Foundation
+  </h2>
+</div>
 
 <script>
-window.onload = function() {
-    const texts = [
-        "Move forward for women empowerment",
-        "Provide education to underprivileged children",
-        "Help widows and differently-abled individuals",
-        "Offer free competitive exam coaching to youth ",
-        "Participate in social service and noble causes"
-    ];
-    let count = 0, index = 0;
+  // Responsive text size for footer banner
+  function adjustFooterBannerText() {
+    const bannerText = document.getElementById('footerBannerText');
+    if (window.innerWidth <= 480) {
+      bannerText.style.fontSize = '0.9rem';
+      bannerText.style.lineHeight = '1.3';
+    } else if (window.innerWidth <= 768) {
+      bannerText.style.fontSize = '1.3rem';
+      bannerText.style.lineHeight = '1.3';
+    } else {
+      bannerText.style.fontSize = '2rem';
+      bannerText.style.lineHeight = '1.4';
+    }
+  }
 
-    (function type(){
-        if(count === texts.length) count = 0;
-        let currentText = texts[count];
-        let letter = currentText.slice(0, ++index);
-        document.getElementById('typing-text').textContent = letter;
-        if(letter.length === currentText.length){
-            count++;
-            index = 0;
-            setTimeout(type, 1000);
-        } else {
-            setTimeout(type, 100);
-        }
-    }());
-};
+  window.addEventListener('load', adjustFooterBannerText);
+  window.addEventListener('resize', adjustFooterBannerText);
 </script>
 
-  <!-- end 2 hero section --> 
+ <!-- FOOTER START -->
+    <footer style="background: #1a1a1a; color: #fff; padding: 3rem 1.5rem 1.5rem; border-top: 3px solid ">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Footer Content Grid -->
+            <div id="footerGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 2rem;">
+                
+                <!-- Section 1: SAKAR SEVA -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">SAKAR SEVA</h3>
+                    <p style="color: #b0b0b0; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.75rem;">Positive thinking, a brilliant future. Join Sakaar Seva Foundation in serving the society.</p>
+                    
+                    <!-- Social Icons -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(233, 30, 99, 0.1); border: 1px solid #e91e63; display: flex; align-items: center; justify-content: center; color: #e91e63; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-instagram" style="font-size: 1.1rem;"></i>
+                        </a>
+                        <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(233, 30, 99, 0.1); border: 1px solid #e91e63; display: flex; align-items: center; justify-content: center; color: #e91e63; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-linkedin-in" style="font-size: 1.1rem;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 2: Quick Links -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./index.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Home
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./aboutus.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>About Us
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./projects1.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Our Projects
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./upcomingpro.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Upcoming Projects
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="./contact.html" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; font-size: 0.75rem;">
+                                <span style="margin-right: 0.5rem; color: #e91e63; font-size: 1rem;">›</span>Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Corporate Office -->
+                <div>
+                    <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Corporate Office</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="color: #b0b0b0; margin-bottom: 1rem; font-size: 0.75rem;">
+                            <strong style="color: #fff;">SAKAAR SEWA FOUNDATION</strong>
+                        </li>
+                        <li style="color: #b0b0b0; margin-bottom: 1rem; line-height: 1.6; font-size: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>H.No. 100,101, Ram Nagar Annex, Vikas Nagar, Dewas, Dewas-455001, Madhya Pradesh
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <i class="fas fa-phone" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>
+                            <a href="tel:+919244989746" style="color: #b0b0b0; text-decoration: none; transition: color 0.3s ease; font-size: 0.75rem;">+91 9244989746</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope" style="color: #e91e63; margin-right: 0.5rem; width: 20px;"></i>
+                            <a href="mailto:Sakarsewango@gmail.com" style="color:  #b0b0b0; text-decoration: none; transition: color 0.3s ease; font-size: 0.75rem;"> Sakarsewango@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div style="border-top: 1px solid rgba(233, 30, 99, 0.3); padding-top: 1.5rem; text-align: center;">
+                <p style="color: #b0b0b0; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                    © 2025 <a href="#" style="color: #e91e63; text-decoration: none; font-weight: 600;">Sakar Seva</a>. All Rights Reserved.
+                </p>
+                <p style="color: #888; font-size: 0.85rem;">
+                    Designed & Maintained by <a href="#" style="color: #e91e63; text-decoration: none;">Sakar Seva Team</a>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script>
+        // Responsive Grid Adjustment
+        function adjustFooterGrid() {
+            const footerGrid = document.getElementById('footerGrid');
+            if (window.innerWidth <= 768) {
+                footerGrid.style.gridTemplateColumns = '1fr';
+                footerGrid.style.gap = '2rem';
+            } else {
+                footerGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                footerGrid.style.gap = '3rem';
+            }
+        }
+
+        // Social Icons Hover Effect
+        const socialLinks = document.querySelectorAll('footer a[style*="border-radius: 50%"]');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.background = '#66cc33';
+                this.style.borderColor = '#66cc33';
+                this.style.color = '#fff';
+                this.style.transform = 'translateY(-3px)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(233, 30, 99, 0.1)';
+                this.style.borderColor = '#e91e63';
+                this.style.color = '#e91e63';
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Quick Links Hover Effect
+        const quickLinks = document.querySelectorAll('footer ul li a');
+        quickLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#66cc33';
+                this.style.paddingLeft = '0.5rem';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '#b0b0b0';
+                this.style.paddingLeft = '0';
+            });
+        });
+
+        // Bottom Links Hover Effect
+        const bottomLinks = document.querySelectorAll('footer div[style*="border-top"] a');
+        bottomLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.textDecoration = 'underline';
+                this.style.color = '#66cc33';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.textDecoration = 'none';
+                this.style.color = '#e91e63';
+            });
+        });
+
+        // Contact Links Hover Effect
+        const contactLinks = document.querySelectorAll('footer ul li a[href^="tel"], footer ul li a[href^="mailto"]');
+        contactLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#66cc33';
+            });
+            link.addEventListener('mouseleave', function() {
+                if (link.href.includes('mailto')) {
+                    this.style.color = '#e91e63';
+                } else {
+                    this.style.color = '#b0b0b0';
+                }
+            });
+        });
+
+        // Run on load and resize
+        window.addEventListener('load', adjustFooterGrid);
+        window.addEventListener('resize', adjustFooterGrid);
+    </script>
+
+</body>
+</html>
