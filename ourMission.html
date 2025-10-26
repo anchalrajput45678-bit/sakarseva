@@ -592,7 +592,7 @@
     position: relative;
     width: 100%;
     height: 50vh;
-    max-height: 500px;
+    max-height: 200px;
     background-image: url(' https://img.freepik.com/premium-photo/hands-cut-out-multicolored-paper-orange-background-place-text_185193-133301.jpg');
     background-size: cover;
     background-position: center;
@@ -627,8 +627,8 @@
     </div>
     <!-- Text Content -->
     <div style="flex: 1; min-width: 300px;">
-        <h2 style="font-size: 2.5rem; color: #E94097; margin-bottom: 20px;">  Our Mission</h2>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 20px;">
+        <h2 style="font-size: 2rem; color: #E94097; margin-bottom: 20px;">  Our Mission</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: #555; margin-bottom: 20px;text-align: justify;">
             <!-- We are dedicated to creating a better world through education, healthcare, and community empowerment. 
             Our programs reach thousands of children and families, transforming lives and building sustainable futures. -->
        
@@ -669,93 +669,82 @@ socially-conscious ecosystem.
 
 
   <!-- Hover / Touch Multi-Image Slider with Overlay -->
-  <!-- Hover / Touch 3-Image Slider with Overlay -->
-<section style="max-width: 1200px; margin: 50px auto; padding: 0 20px; position: relative; overflow: hidden;">
-
-    <!-- Slider Container -->
-    <div class="slider-container" style="display: flex; transition: transform 0.5s ease; gap: 20px;">
-
-        <!-- Slide 1 -->
-        <div class="slide" style="flex: 0 0 33.33%; border-radius: 15px; overflow: hidden; height: 250px; position: relative; cursor: pointer;"
-             data-title="Education for Children"
-             data-desc="We provide quality education to underprivileged children so they can achieve their dreams.">
-            <img src="https://media.istockphoto.com/id/1175491482/vector/children-watching-television-in-a-room.jpg?s=612x612&w=0&k=20&c=5B767tPYGQIqj43g_yo47It8635AhP_wiPly7KpUSSU="
-                 style="width:100%; height:100%; object-fit: cover; display:block;">
-            <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transition: all 0.3s ease; text-align:center; padding:10px;">
-                <h3 style="margin:0 0 10px; font-size:1.5rem; color:#FBB040;">Title</h3>
-                <p style="margin:0; font-size:1rem;">Description</p>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide" style="flex: 0 0 33.33%; border-radius: 15px; overflow: hidden; height: 250px; position: relative; cursor: pointer;"
-             data-title="Women Empowerment Programs"
-             data-desc="Supporting women through education, skill training, and community programs to build stronger societies.">
-            <img src="https://i.pinimg.com/474x/bb/b9/82/bbb98276b247bfecde16158b99dc1084.jpg"
-                 style="width:100%; height:100%; object-fit: cover; display:block;">
-            <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transition: all 0.3s ease; text-align:center; padding:10px;">
-                <h3 style="margin:0 0 10px; font-size:1.5rem; color:#FBB040;">Title</h3>
-                <p style="margin:0; font-size:1rem;">Description</p>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="slide" style="flex: 0 0 33.33%; border-radius: 15px; overflow: hidden; height: 250px; position: relative; cursor: pointer;"
-             data-title="Healthcare Access"
-             data-desc="Providing essential healthcare services and health education to improve community well-being.">
-            <img src="https://www.voiceofbihar.in/wp-content/uploads/2025/07/1751989432128.webp"
-                 style="width:100%; height:100%; object-fit: cover; display:block;">
-            <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transition: all 0.3s ease; text-align:center; padding:10px;">
-                <h3 style="margin:0 0 10px; font-size:1.5rem; color:#FBB040;">Title</h3>
-                <p style="margin:0; font-size:1rem;">Description</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Responsive -->
-<style>
-@media (max-width: 968px) {
-    .slider-container .slide { height: 220px; flex: 0 0 50%; }
-}
-@media (max-width: 480px) {
-    .slider-container .slide { height: 180px; flex: 0 0 100%; }
-    .slider-container .overlay h3 { font-size:1.2rem; }
-    .slider-container .overlay p { font-size:0.9rem; }
-}
-</style>
-
-<!-- JS -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-
-    slides.forEach(slide => {
-        const overlay = slide.querySelector('.overlay');
-        const title = slide.getAttribute('data-title');
-        const desc = slide.getAttribute('data-desc');
-
-        overlay.querySelector('h3').textContent = title;
-        overlay.querySelector('p').textContent = desc;
-
-        // Hover for desktop
-        slide.addEventListener('mouseenter', () => overlay.style.opacity = '1');
-        slide.addEventListener('mouseleave', () => overlay.style.opacity = '0');
-
-        // Touch for mobile
-        slide.addEventListener('touchstart', () => overlay.style.opacity = '1');
-        slide.addEventListener('touchend', () => overlay.style.opacity = '0');
-    });
-});
-</script>
-
-
-<!-- footer se upper vala -->
    
 
 <!-- footer se upper vala -->
+    <!-- Vision Section -->
+    <section style="background: #F5F5F5; padding: 10px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; color: #FF0099; text-align: center; margin-bottom: 20px; font-weight: 700; position: relative;">Our Core Values</h2>
+            <div style="width: 100px; height: 4px; background: linear-gradient(90deg, #FF0099, #FF6600); border-radius: 2px; margin: 0 auto 50px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;">
+                <!-- Value Card 1 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #FF0099;">🤝</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Human Connection</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">We believe in the transformative power of genuine human relationships and community bonds that create lasting positive change.</p>
+                </div>
+
+                <!-- Value Card 2 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #FF6600;">💪</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Community Empowerment</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">We empower individuals and communities with tools, resources, and opportunities to grow and thrive independently.</p>
+                </div>
+
+                <!-- Value Card 3 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #0099FF;">🌱</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Personal Growth</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">Every member of our foundation has the opportunity to develop personally while making meaningful contributions to society.</p>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+
+
+   
+     
+<!-- footer se upper vala -->
+  <!-- Impact Section -->
+    <section style="background-color: #F5F5F5; padding: 30px 20px; color: black;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; color:  #FF0099; text-align: center; margin-bottom: 20px; font-weight: 700;">Creating Meaningful Impact</h2>
+            <div style="width: 100px; height: 4px; background: #FFCC00; border-radius: 2px; margin: 0 auto 50px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px;">
+                <!-- Impact Box 1 -->
+                <div style="background: #F5F5F5;  border-radius: 15px; padding: 40px 30px; text-align: center; border: 2px solid white; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)';">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; color: #FFCC00;">Community Building</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; margin: 0;">We create strong, interconnected communities where members support and uplift each other, fostering lasting relationships built on trust and shared values.</p>
+                </div>
+
+                <!-- Impact Box 2 -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 40px 30px; text-align: center; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)';">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; color: #FFCC00;">Economic Empowerment</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; margin: 0;">Our system provides economic opportunities for our contributors and associates, enabling them to improve their livelihoods while serving society.</p>
+                </div>
+
+                <!-- Impact Box 3 -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 40px 30px; text-align: center; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)';">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; color: #FFCC00;">Social Transformation</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; margin: 0;">Through collective action and shared responsibility, we drive meaningful social change that addresses real community needs and creates sustainable solutions.</p>
+                </div>
+
+                <!-- Impact Box 4 -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 40px 30px; text-align: center; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)';">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; color: #FFCC00;">Skills & Knowledge</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; margin: 0;">We provide training, mentorship, and learning opportunities that help individuals develop valuable skills for personal and professional growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
    <!-- end 4 navbar -->
+    <!--  -->
 <!-- Footer Top Section with Image -->
 <div style="
   position:relative;
@@ -791,14 +780,14 @@ document.addEventListener('DOMContentLoaded', function() {
     left:50%;
     transform:translate(-50%,-50%);
     color:#FFFFFF;
-    font-size:2rem;
+    font-size:16px;
     font-weight:700;
     margin:0;
     padding:0 12px;
     line-height:1.4;
     width:90%;
   ">
-     "Together we can bring light to every life." <br>— Sakar Seva Foundation
+     "Together we can bring light to every life." <br>—  Sakar SewaFoundation
   </h2>
 </div>
 
@@ -829,7 +818,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Footer Content Grid -->
             <div id="footerGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 2rem;">
                 
-                <!-- Section 1: SAKAR SEVA -->
+                <!-- Section 1:  Sakar Sewa-->
                 <div>
                     <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">SAKAR SEVA</h3>
                     <p style="color: #b0b0b0; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.75rem;">Positive thinking, a brilliant future. Join Sakaar Seva Foundation in serving the society.</p>

@@ -1,11 +1,9 @@
-  <!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> sakarseva
-        
-    </title>
+    <title> Sakarsewa - Responsive Navbar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -357,11 +355,11 @@
             }
 
             .navbar {
-                padding: 15px 20px;
+                padding: 4px 20px;
             }
 
             .logo img {
-                height: 50px;
+                height: 120px;
             }
         }
 
@@ -461,20 +459,17 @@
                         Our Projects 
                         <!-- <i class="fas fa-chevron-down"></i> -->
                     </a>
-                   
+                     
                 </li>
 
                 <li class="nav-item" style="white-space: nowrap;">
                     <a href="./upcomingpro.html" class="nav-link">
                         Upcoming Projects
-                        
+                         <!-- <i class="fas fa-chevron-down"></i> -->
                     </a>
-                    
                 </li>
 
-                 
-
-                  <li class="nav-item" style="white-space: nowrap;">
+                 <li class="nav-item" style="white-space: nowrap;">
                     <a href="./galley.html" class="nav-link"> Gallery
                           <i class="fas fa-chevron-down"></i>  
                      </a> 
@@ -484,9 +479,9 @@
                          
           
                     </ul>  
-                </li>
-
+                </li>  </li>
  
+                
 
                 <li class="nav-item" style="white-space: nowrap;">
                     <a href="./contact.html" class="nav-link">Contact Us</a>
@@ -562,9 +557,14 @@
         });
     </script>
 
+  
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-        
         .slider-container {
             max-width: 1600px;
             width: 100%;
@@ -577,8 +577,8 @@
             position: relative;
             overflow: hidden;
             border-radius: 30px;
-            box-shadow: 0 25px 80px white, 
-                        0 0 0 1px white;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3), 
+                        0 0 0 1px rgba(255,255,255,0.1);
             background: #000;
         }
 
@@ -604,14 +604,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 8s ease-out;
+            /* Image stable rahegi - no zoom animation */
         }
 
-        .slide.active .slide-image {
-            transform: scale(1.1);
-        }
-
-        .slide-overlay {
+        /* REMOVED OVERLAY - Images clear dikhengi */
+        /* .slide-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -619,12 +616,12 @@
             height: 100%;
             background: linear-gradient(
                 to bottom,
-                /* rgba(0,0,0,0.2) 0%,
-                rgba(0,0,0,0.4) 50%,
-                rgba(0,0,0,0.7) 100% */
+                rgba(0,0,0,0.3) 0%,
+                rgba(0,0,0,0.5) 50%,
+                rgba(0,0,0,0.7) 100%
             );
             z-index: 1;
-        }
+        } */
 
         .slide-content {
             position: relative;
@@ -632,20 +629,14 @@
             text-align: center;
             padding: 60px 40px;
             color: white;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .slide.active .slide-content {
-            opacity: 1;
-            transform: translateY(0);
+            max-width: 90%;
         }
 
         .slide-title {
-            font-size: 64px;
+            font-size:38px;
+            color: #FF0099;
             font-weight: 800;
-            text-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            text-shadow: 0 8px 32px rgba(0,0,0,0.8);
             max-width: 1000px;
             line-height: 1.2;
             letter-spacing: -1px;
@@ -653,6 +644,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .slide.active .slide-title {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .navigation {
@@ -664,7 +663,7 @@
             gap: 18px;
             z-index: 10;
             padding: 16px 28px;
-            /* background: rgba(255, 255, 255, 0.15); */
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -699,13 +698,13 @@
         .nav-dot:hover {
             background: rgba(255,255,255,0.8);
             transform: scale(1.3);
-            box-shadow: 0 4px 16px white;
+            box-shadow: 0 4px 16px rgba(255,255,255,0.5);
         }
 
         .nav-dot.active {
             background: white;
             transform: scale(1.4);
-            box-shadow: 0 4px 20px white;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.7);
         }
 
         .nav-dot.active::before {
@@ -764,7 +763,7 @@
             width: 0;
             z-index: 10;
             transition: width 5s linear;
-            box-shadow: 0 0 20px  white;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
         .slide.active .progress-bar {
@@ -799,7 +798,7 @@
             }
 
             .slide {
-                height: 550px;
+                height: 500px;
             }
 
             .slide-content {
@@ -839,7 +838,7 @@
 
         @media (max-width: 480px) {
             .slide {
-                height: 480px;
+                height: 450px;
             }
 
             .slide-title {
@@ -874,7 +873,7 @@
 
         @media (max-width: 360px) {
             .slide {
-                height: 420px;
+                height: 400px;
             }
 
             .slide-title {
@@ -882,30 +881,32 @@
             }
         }
     </style>
- 
+</head>
+<body>
     <div class="slider-container">
         <div class="slider-wrapper">
             <div class="slides" id="slides">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&h=900&fit=crop" alt="Helping Hands" class="slide-image">
-                    <div class="slide-overlay"></div>
+                <div class="slide active">
+                    <img src="./womenempowerment1.png" alt="Woman Empowerment" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
                     <div class="slide-content">
-                        <div class="slide-title">Helping Hands for the Needy</div>
-                    </div>
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="slide">
-                    <img src="https://t4.ftcdn.net/jpg/06/79/18/19/360_F_679181990_SDu0HtfAD86cDJjp0AKBqumBFf0zRs01.jpg" alt="Woman Empowerment" class="slide-image">
-                    <div class="slide-overlay"></div>
-                    <div class="slide-content">
-                        <div class="slide-title">Woman Empowerment</div>
+                        <div class="slide-title  ">Woman Empowerment</div>
                     </div>
                     <div class="progress-bar"></div>
                 </div>
 
                 <div class="slide">
-                    <img src="https://unessafoundation.org/wp-content/uploads/2025/09/cost-to-educate-a-child-in-India.webp" alt="Education for Every Child" class="slide-image">
-                    <div class="slide-overlay"></div>
+                    <img src="./hands2.html.png" alt="Helping Hands" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
+                    <div class="slide-content">
+                        <div class="slide-title">Helping Hands for the Needy</div>
+                    </div>
+                    <div class="progress-bar"></div>
+                </div>
+
+                <div class="slide">
+                    <img src="./eduaction.png" alt="Education for Every Child" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
                     <div class="slide-content">
                         <div class="slide-title">Education for Every Child</div>
                     </div>
@@ -913,8 +914,8 @@
                 </div>
 
                 <div class="slide">
-                    <img src="https://www.rainforest-alliance.org/wp-content/uploads/2025/10/Save-water-768x439.jpg.optimal.jpg" alt="Save Water" class="slide-image">
-                    <div class="slide-overlay"></div>
+                    <img src="./water.png" alt="Save Water" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
                     <div class="slide-content">
                         <div class="slide-title">Save Water</div>
                     </div>
@@ -922,8 +923,8 @@
                 </div>
 
                 <div class="slide">
-                    <img src="https://give.do/blog/wp-content/uploads/2021/11/Education-top-10-blog-banner.jpg" alt="Every Child Deserves a Future" class="slide-image">
-                    <div class="slide-overlay"></div>
+                    <img src="./everychild.png" alt="Every Child Deserves a Future" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
                     <div class="slide-content">
                         <div class="slide-title">Every Child Deserves a Future</div>
                     </div>
@@ -931,15 +932,13 @@
                 </div>
 
                 <div class="slide">
-                    <img src="https://media.istockphoto.com/id/1396295861/photo/dog-drinking-water-from-plastic-bottle-in-nature-n.jpg?s=612x612&w=0&k=20&c=aD893i5-ZunXZfSQKew_I8_5C5R8Wv_AGXMrlGtQx94=" alt="Animal Care" class="slide-image">
-                    <div class="slide-overlay"></div>
+                    <img src="./animal5.png" alt="Animal Care" class="slide-image">
+                    <!-- REMOVED OVERLAY -->
                     <div class="slide-content">
                         <div class="slide-title">Animal Care</div>
                     </div>
                     <div class="progress-bar"></div>
                 </div>
-
-                 
             </div>
 
             <button class="arrow prev" onclick="changeSlide(-1)">‹</button>
@@ -1009,8 +1008,12 @@
             autoPlay();
         }
 
-        createNavigation();
-        autoPlay();
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavigation();
+            updateSlider();
+            autoPlay();
+        });
 
         // Touch/Swipe support
         let touchStartX = 0;
@@ -1038,50 +1041,53 @@
             if (e.key === 'ArrowRight') changeSlide(1);
         });
     </script>
-
     <!-- 1 hero section -->
-      <!-- 1 hero section -->
-<!-- Additional Content Section -->
-    <section style="background-color: #F5F5F5; padding: 80px 40px; text-align: center;">
-       
-        <h2 style="color: #FF0099; font-size: 2.5rem; margin-bottom: 20px;color: #b31248">Our Services </h2>
-        
-        <p style="color: #333333; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.6;">
-            We are dedicated to ensuring every child in India has access to education, healthcare, and a safe environment to grow and thrive. Join us in our mission to create brighter futures for the next generation.
-        </p>
-        
-        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px;">
-            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
-                <div style="color: #FF6600; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i></div>
-                <h3 style="color: #FF6600; margin-bottom: 15px;">Education</h3>
-                <p style="color: #333333;">Providing quality education to underprivileged children across India.</p>
-            </div>
+      <!-- Pillars Section -->
+    <section style="background: white; padding: 30px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; color: #FF0099; text-align: center; margin-bottom: 20px; font-weight: 700;">Pillars of  Sakar Sewa</h2>
+            <div style="width: 100px; height: 4px; background: linear-gradient(90deg, #FF0099, #FF6600); border-radius: 2px; margin: 0 auto 50px;"></div>
             
-            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
-                <div style="color: #66CC33; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-heartbeat"></i></div>
-                <h3 style="color: #66CC33; margin-bottom: 15px;">Healthcare</h3>
-                <p style="color: #333333;">Ensuring access to proper healthcare and nutrition for all children.</p>
-            </div>
-            
-            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
-                <div style="color: #FFCC00; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-home"></i></div>
-                <h3 style="color: #FFCC00; margin-bottom: 15px;">Safe Environment</h3>
-                <p style="color: #333333;">Creating safe spaces where children can play, learn and grow.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;">
+                <!-- Pillar Card 1 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #FF0099,  #FF0099);"></div>
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #FF0099;">🌍</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Inclusive Growth</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">Creating opportunities for every section of society to participate in and benefit from economic progress.</p>
+                </div>
+
+                <!-- Pillar Card 2 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #FF6600, #FF9933);"></div>
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #FF6600;">🏘️</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Social Development</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">Building strong communities through education, healthcare, and empowerment initiatives for lasting change.</p>
+                </div>
+
+                <!-- Pillar Card 3 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 153, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0099FF, #0066CC);"></div>
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #0099FF;">💝</div>
+                    <h3 style="font-size: 1.5rem; color: #FF6600; margin-bottom: 15px; font-weight: 600;">Quality of Life</h3>
+                    <p style="color: #333333; font-size: 1rem; line-height: 1.7; margin: 0;">Improving living standards for the underprivileged through comprehensive support and sustainable solutions.</p>
+                </div>
             </div>
         </div>
     </section>
+    <!-- end 2 hero section -->
 
     <!-- 2 hero section -->
-      
-<!-- Overview Section -->
+
+    <!-- Overview Section -->
 <div class="overview-section" style="position:relative; margin-top:50px; z-index:10; padding:0 clamp(20px,8vw,120px);">
     <div class="overview-container" style="max-width:1200px; margin:0 auto; background:#FFFFFF; border-radius:15px; box-shadow:0 10px 50px rgba(0,0,0,0.15); overflow:hidden; display:grid; grid-template-columns:1fr;">
 
         <!-- Left Content -->
         <div class="overview-left" style="background-color:rgb(176,61,100); padding:clamp(20px,5vw,40px); color:#FFFFFF; display:flex; flex-direction:column; justify-content:center; text-align:center;">
             <p style="font-size:clamp(0.9rem,1.5vw,1.1rem); margin:0 0 15px 0; color:rgba(255,255,255,0.9); font-weight:500; letter-spacing:0.5px;">Overview</p>
-            <h2 style="font-size:clamp(1.5rem,3vw,2.2rem); margin:0 0 20px 0; font-weight:700; line-height:1.3;">Sakar Seva Foundation</h2>
-            <p style="font-size:clamp(0.9rem,1.3vw,1.05rem); margin:0 0 30px 0; line-height:1.7; color:rgba(255,255,255,0.95); text-align:justify;">
+            <h2 style="font-size:2rem; margin:0 0 20px 0; font-weight:700; line-height:1.3;">Sakar Seva Foundation</h2>
+            <p style="font-size:16px; margin:0 0 30px 0; line-height:1.7; color:rgba(255,255,255,0.95); text-align:justify;">
                 <strong>Sakar Seva Foundation</strong> established in 2025, is a registered non-profit, non-governmental organization dedicated to community development, child welfare, education, and healthcare initiatives. We believe that education is both a means and an end to a better life.
             </p>
         </div>
@@ -1122,97 +1128,67 @@
 </div>
 </div>
 
-</div> <!-- Spacing --> <div style="height:50px;"></div> <!-- Mobile Responsiveness --> <script> function handleResponsive(){ var container = document.querySelector('.overview-container'); if(window.innerWidth < 768){ container.style.gridTemplateColumns = '1fr'; } else { container.style.gridTemplateColumns = '1fr'; } } window.addEventListener('resize', handleResponsive); handleResponsive(); </script> 
-     <!-- end 2 hero section -->
-
-<!-- 3 hero section -->
+</div>
 
 
-   <section style="max-width: 1400px; margin: 60px auto; padding: 0 20px;">
-        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+
+<!-- new sectio -->
+<!-- Sustainable Reality Section -->
+    <section style="background-color: white; padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; color: #FF0099; text-align: center; margin-bottom: 20px; font-weight: 700;">Transforming Vision into Sustainable Reality</h2>
+            <div style="width: 100px; height: 4px; background: linear-gradient(90deg, #FF0099, #FF6600); border-radius: 2px; margin: 0 auto 50px;"></div>
             
-            <!-- Video Side -->
-            <div style="flex: 1; min-width: 300px;">
-                <div style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-                    <iframe 
-                        src="./woemn1vedio.mp4" 
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px;">
+                <!-- Step 1 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #FF0099,  #FF0099); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(255, 0, 153, 0.4);">1</div>
+                    <div style="margin-top: 30px;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">🎯</div>
+                        <h3 style="font-size: 1.4rem; color:  #FF0099; margin-bottom: 15px; font-weight: 600;">Identify Needs</h3>
+                        <p style="color: #333333; line-height: 1.7; font-size: 0.95rem;">Understanding community challenges through direct engagement and data analysis</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #FF6600, #FF9933); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);">2</div>
+                    <div style="margin-top: 30px;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">🚀</div>
+                        <h3 style="font-size: 1.4rem; color:  #FF0099; margin-bottom: 15px; font-weight: 600;">Deploy Solutions</h3>
+                        <p style="color: #333333; line-height: 1.7; font-size: 0.95rem;">Implementing technology-driven and community-based interventions effectively</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #0099FF, #0066CC); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(0, 153, 255, 0.4);">3</div>
+                    <div style="margin-top: 30px;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">📊</div>
+                        <h3 style="font-size: 1.4rem; color:  #FF0099; margin-bottom: 15px; font-weight: 600;">Measure Impact</h3>
+                        <p style="color: #333333; line-height: 1.7; font-size: 0.95rem;">Tracking progress and outcomes to ensure meaningful, lasting change</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div style="background: #FFFFFF; border-radius: 20px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.1)';">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #66CC33, #99FF66); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(102, 204, 51, 0.4);">4</div>
+                    <div style="margin-top: 30px;">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">♻️</div>
+                        <h3 style="font-size: 1.4rem; color:  #FF0099; margin-bottom: 15px; font-weight: 600;">Scale & Sustain</h3>
+                        <p style="color: #333333; line-height: 1.7; font-size: 0.95rem;">Expanding successful models and ensuring long-term sustainability</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- Text Side -->
-            <div style="flex: 1.1rem; min-width: 300px;">
-                
-                <h2 style="color: #FF0099; font-size: 2.5rem; margin-bottom: 20px;color: #b31248"> Women Empowerment </h2>
-        
-                <p style=" font-size:clamp(0.9rem,1.3vw,1.05rem);color: #555; line-height: 1.8; margin: 0 0 20px 0;">
-                  We are committed to creating positive change in our community by empowering women through education, skill development, and leadership opportunities.
-                   
-                </p>
-                <p style=" font-size:clamp(0.9rem,1.3vw,1.05rem); color: #555; line-height: 1.8; margin: 0 0 30px 0;">
-                   Our programs focus on supporting women to achieve independence, access equal opportunities, and participate actively in social, economic, and environmental initiatives for a stronger and inclusive community.
-                   
-                </p>
-                
-            </div>
-
         </div>
     </section>
+<!-- 3 end hero section -->
 
-    <!-- Mobile Responsive CSS -->
-    <style>
-        @media (max-width: 768px) {
-            section {
-                margin: 40px auto !important;
-                padding: 0 15px !important;
-            }
-            
-            div[style*="display: flex"] {
-                gap: 30px !important;
-            }
-            
-            h2 {
-                font-size: 32px !important;
-            }
-            
-            p {
-                font-size: 16px !important;
-            }
-            
-            a {
-                padding: 12px 30px !important;
-                font-size: 15px !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            section {
-                margin: 30px auto !important;
-            }
-            
-            h2 {
-                font-size: 28px !important;
-            }
-            
-            p {
-                font-size: 15px !important;
-            }
-        }
-        
-        /* Hover Effect */
-        a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-        }
-    </style>
 
-<!-- prorgrams -->
+
 <!-- Services & Products Section -->
-    <section style="padding:60px 20px; max-width:1100px; margin:0 auto;">
-        <h2 style="font-size:clamp( 1.6rem, 3.5vw, 2.2rem);  color: #b31248; text-align:left; margin-bottom:40px;">Our Programs</h2>
+    <section style="padding:10px 20px; max-width:1100px; margin:0 auto;">
+        <h2 style="font-size:2rem;  color:  #FF0099; text-align: center; margin-bottom:40px;">Our Programs and Services</h2>
 
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
 
@@ -1446,9 +1422,10 @@
         </div>
     </section>
 
+<!-- last section -->
 
-
-  <!-- end 4 navbar -->
+  
+    <!-- end 4 navbar -->
 <!-- Footer Top Section with Image -->
 <div style="
   position:relative;
@@ -1484,14 +1461,14 @@
     left:50%;
     transform:translate(-50%,-50%);
     color:#FFFFFF;
-    font-size:2rem;
+    font-size: 16px;
     font-weight:700;
     margin:0;
     padding:0 12px;
     line-height:1.4;
     width:90%;
   ">
-     "Together we can bring light to every life." <br>— Sakar Seva Foundation
+     "Together we can bring light to every life." <br>—  Sakar SewaFoundation
   </h2>
 </div>
 
@@ -1516,16 +1493,14 @@
 </script>
 
 
- 
- 
- <!-- FOOTER START -->
+<!-- FOOTER START -->
     <footer style="background: #1a1a1a; color: #fff; padding: 3rem 1.5rem 1.5rem; border-top: 3px solid ">
         <div style="max-width: 1200px; margin: 0 auto;">
             
             <!-- Footer Content Grid -->
             <div id="footerGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 2rem;">
                 
-                <!-- Section 1: SAKAR SEVA -->
+                <!-- Section 1:  Sakar Sewa-->
                 <div>
                     <h3 style="color: #e91e63; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">SAKAR SEVA</h3>
                     <p style="color: #b0b0b0; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.75rem;">Positive thinking, a brilliant future. Join Sakaar Seva Foundation in serving the society.</p>

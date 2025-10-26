@@ -1,146 +1,584 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Projects - Sakaar Seva Foundation</title>
-</head>
-<body style="margin:0; font-family:Arial, sans-serif; background-color:#F5F5F5;">
+  
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .initiatives-section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            color: #b31248;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #FF6600;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .initiative-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            color: #FF6600;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #333333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .card-list {
+            color: #333333;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-bottom 0.3s ease;
+        }
+        
+        .card-list.expanded {
+            max-height: 500px;
+            margin-bottom: 20px;
+        }
+        
+        .card-list li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .card-list li::before {
+            content: '•';
+            color: #b31248;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #b31248;
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .card-button:hover {
+            background-color: #e73370;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .initiatives-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+ 
+    <!-- Initiatives Section -->
+    <section class="initiatives-section">
+        <h2 class="section-title">Our Key Initiatives</h2>
+        
+        <div class="initiatives-grid">
+            
+            <!-- Women Empowerment -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Women Empowerment</h3>
+                    <p class="card-description">We provide training to make women self-reliant, legal assistance, and support for those wanting to start their own businesses.</p>
+                    <ul class="card-list">
+                        <li>Vocational training programs</li>
+                        <li>Legal assistance for women</li>
+                        <li>Business support and mentorship</li>
+                        <li>Self-defense training</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Child Education -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Child Education</h3>
+                    <p class="card-description">We ensure every child has access to quality education through free study centers, educational materials, and learning support.</p>
+                    <ul class="card-list">
+                        <li>Free study materials and books</li>
+                        <li>After-school tutoring programs</li>
+                        <li>Digital learning resources</li>
+                        <li>Scholarship opportunities</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Widow & Disabled Support -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Widow & Disabled Support</h3>
+                    <p class="card-description">We provide financial assistance, skill development, and support services to widows and differently-abled individuals.</p>
+                    <ul class="card-list">
+                        <li>Financial assistance programs</li>
+                        <li>Skill development training</li>
+                        <li>Healthcare support</li>
+                        <li>Social integration initiatives</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Free Exam Coaching -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Free Exam Coaching</h3>
+                    <p class="card-description">We provide young aspirants with access to free coaching, study materials, and guidance to help them succeed in competitive exams.</p>
+                    <ul class="card-list">
+                        <li>Free coaching for competitive exams</li>
+                        <li>Expert faculty guidance</li>
+                        <li>Mock test series</li>
+                        <li>Career counseling services</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Legal Help for Women -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Legal Help for Women</h3>
+                    <p class="card-description">We provide women with free legal support, guidance, and resources to ensure their rights are protected.</p>
+                    <ul class="card-list">
+                        <li>Free legal consultation</li>
+                        <li>Assistance with legal documentation</li>
+                        <li>Guidance on rights and legal procedures</li>
+                        <li>Support for women facing legal challenges</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Orphan Girl Support -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542810635-9c8aadb4c91e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Orphan Girl Support</h3>
+                    <p class="card-description">We help orphan girls by providing access to education and assisting them in their marriage, ensuring a better future.</p>
+                    <ul class="card-list">
+                        <li>Free educational support</li>
+                        <li>Guidance for marriage</li>
+                        <li>Mentorship and counseling</li>
+                        <li>Safety and empowerment programs</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Member Insurance -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Member Insurance</h3>
+                    <p class="card-description">We provide insurance coverage to our members to ensure financial security during emergencies and difficult times.</p>
+                    <ul class="card-list">
+                        <li>Health insurance plans</li>
+                        <li>Life insurance coverage</li>
+                        <li>Accident insurance</li>
+                        <li>Family protection schemes</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Accident Aid -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Accident Aid</h3>
+                    <p class="card-description">We provide immediate financial and medical assistance to individuals and families affected by accidents.</p>
+                    <ul class="card-list">
+                        <li>Emergency medical funds</li>
+                        <li>Rehabilitation support</li>
+                        <li>Legal assistance for accident cases</li>
+                        <li>Counseling services</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Free Study App -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Free Study App</h3>
+                    <p class="card-description">We provide a comprehensive free study app with resources for all competitive exams and educational needs.</p>
+                    <ul class="card-list">
+                        <li>Comprehensive study materials</li>
+                        <li>Practice tests and quizzes</li>
+                        <li>Video lessons</li>
+                        <li>Performance analytics</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Women Employment Help -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1551836026-d5c8f2b5c65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Women Employment Help</h3>
+                    <p class="card-description">We assist women in finding suitable employment opportunities and developing necessary skills for career growth.</p>
+                    <ul class="card-list">
+                        <li>Job placement assistance</li>
+                        <li>Resume building workshops</li>
+                        <li>Interview preparation</li>
+                        <li>Skill development programs</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Social Service -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1559027615-cfa462850979?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Social Service</h3>
+                    <p class="card-description">We engage in various social service activities to support communities and address pressing social issues.</p>
+                    <ul class="card-list">
+                        <li>Community development programs</li>
+                        <li>Disaster relief efforts</li>
+                        <li>Food and clothing drives</li>
+                        <li>Volunteer coordination</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Environment Program -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Environment Program</h3>
+                    <p class="card-description">We work towards environmental conservation through awareness campaigns, tree plantation, and sustainable practices.</p>
+                    <ul class="card-list">
+                        <li>Tree plantation drives</li>
+                        <li>Waste management initiatives</li>
+                        <li>Environmental awareness campaigns</li>
+                        <li>Cleanliness drives</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Animal Care -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1548767797-d8c11a2b3f26?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Animal Care</h3>
+                    <p class="card-description">We provide care and protection to stray and injured animals through rescue operations and medical treatment.</p>
+                    <ul class="card-list">
+                        <li>Animal rescue operations</li>
+                        <li>Veterinary care services</li>
+                        <li>Adoption programs</li>
+                        <li>Animal rights awareness</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Free School & Training -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Free School & Training</h3>
+                    <p class="card-description">We operate free schools and training centers to provide education and skill development to underprivileged communities.</p>
+                    <ul class="card-list">
+                        <li>Free primary education</li>
+                        <li>Vocational training programs</li>
+                        <li>Adult literacy classes</li>
+                        <li>Computer training</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Health & De-addiction Camp -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Health & De-addiction Camp</h3>
+                    <p class="card-description">We organize health camps and de-addiction programs to promote wellness and help individuals overcome addiction.</p>
+                    <ul class="card-list">
+                        <li>Free health check-ups</li>
+                        <li>De-addiction counseling</li>
+                        <li>Rehabilitation programs</li>
+                        <li>Health awareness sessions</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Senior Citizen Care -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Senior Citizen Care</h3>
+                    <p class="card-description">We provide support and care for senior citizens through various programs addressing their health and social needs.</p>
+                    <ul class="card-list">
+                        <li>Healthcare assistance</li>
+                        <li>Social engagement activities</li>
+                        <li>Pension scheme guidance</li>
+                        <li>Day care facilities</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Spiritual Programs -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Spiritual Programs</h3>
+                    <p class="card-description">We organize spiritual programs and meditation sessions to promote mental peace and holistic well-being.</p>
+                    <ul class="card-list">
+                        <li>Meditation sessions</li>
+                        <li>Yoga classes</li>
+                        <li>Spiritual discourses</li>
+                        <li>Mindfulness workshops</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Career & Mental Help -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Career & Mental Help</h3>
+                    <p class="card-description">We provide career guidance and mental health support to help individuals achieve professional and personal well-being.</p>
+                    <ul class="card-list">
+                        <li>Career counseling</li>
+                        <li>Mental health counseling</li>
+                        <li>Stress management workshops</li>
+                        <li>Personality development</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Slum Education & Health -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Slum Education & Health</h3>
+                    <p class="card-description">We focus on improving education and health conditions in slum areas through targeted interventions and support.</p>
+                    <ul class="card-list">
+                        <li>Slum education centers</li>
+                        <li>Health check-up camps</li>
+                        <li>Hygiene awareness programs</li>
+                        <li>Nutrition support</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Self-Defense Awareness -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Self-Defense Awareness</h3>
+                    <p class="card-description">We conduct self-defense training programs to empower individuals, especially women, with skills to protect themselves.</p>
+                    <ul class="card-list">
+                        <li>Self-defense workshops</li>
+                        <li>Safety awareness sessions</li>
+                        <li>Practical defense techniques</li>
+                        <li>Confidence building</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+            <!-- Women Business Support -->
+            <div class="initiative-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1551836026-eabc5efaa2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Women Business Support</h3>
+                    <p class="card-description">We support women entrepreneurs with training, mentorship, and resources to start and grow their businesses.</p>
+                    <ul class="card-list">
+                        <li>Entrepreneurship training</li>
+                        <li>Business mentorship</li>
+                        <li>Access to funding</li>
+                        <li>Networking opportunities</li>
+                    </ul>
+                    <button class="card-button view-toggle">View All Projects</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-<!-- PROJECT SECTION -->
-<section style="padding:50px 20px; background-color:#FFFFFF;">
-  <h2 style="text-align:center; color:#FF0099; font-size:28px; margin-bottom:30px;">
-    Our Projects
-  </h2>
-
-  <!-- Container -->
-  <div style="
-      display:flex; 
-      flex-wrap:wrap; 
-      justify-content:center; 
-      gap:20px;
-      max-width:1200px;
-      margin:0 auto;
-  ">
-
-    <!-- Each Project Card -->
-    <div style="
-        background-color:#E6F3FF; 
-        flex:1 1 250px; 
-        max-width:300px; 
-        border-radius:12px; 
-        box-shadow:0 4px 8px rgba(0,0,0,0.1);
-        padding:20px;
-        text-align:center;
-        transition:all 0.3s ease;
-      "
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';"
-    >
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">1. Cottage Industry</h3>
-      <p style="color:#333333; font-size:15px;">Empowering rural women through self-employment and traditional crafts.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;" 
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">2. Handicraft Industry</h3>
-      <p style="color:#333333; font-size:15px;">Promoting local artisans and handmade crafts.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">3. Leaf Plate & Bowl Industry</h3>
-      <p style="color:#333333; font-size:15px;">Encouraging eco-friendly products through dona-pattal making.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">4. Mangalsutra & Garland Industry</h3>
-      <p style="color:#333333; font-size:15px;">Training women in jewellery and garland making.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">5. “From Waste to Creation” Project</h3>
-      <p style="color:#333333; font-size:15px;">Creating useful products from waste materials.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">6. Road Safety Project</h3>
-      <p style="color:#333333; font-size:15px;">Spreading awareness about road safety rules.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">7. Teddy Bear Project</h3>
-      <p style="color:#333333; font-size:15px;">Helping women learn soft toy making for income.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">8. Pathshala Project</h3>
-      <p style="color:#333333; font-size:15px;">Providing free education and stationery to children.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">9. Sanitary Pad Project</h3>
-      <p style="color:#333333; font-size:15px;">Promoting menstrual hygiene and pad-making training.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">10. Organic Farming</h3>
-      <p style="color:#333333; font-size:15px;">Encouraging farmers to adopt sustainable agriculture.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">11. Audition Project</h3>
-      <p style="color:#333333; font-size:15px;">Providing platform for youth talents in art and culture.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">12. Beauty Parlour Training</h3>
-      <p style="color:#333333; font-size:15px;">Skill development and training for self-employment.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">13. LED Bulb Assembly</h3>
-      <p style="color:#333333; font-size:15px;">Promoting energy efficiency through LED assembling.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">14. Cleaning Products (Mop) Industry</h3>
-      <p style="color:#333333; font-size:15px;">Training in production of eco-friendly cleaning materials.</p>
-    </div>
-
-    <div style="background-color:#E6F3FF; flex:1 1 250px; max-width:300px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.05)';"
-      onmouseout="this.style.transform='scale(1)';">
-      <h3 style="color:#FF6600; font-size:20px; margin-bottom:10px;">15. Organic Pickle, Papad & Spice Making</h3>
-      <p style="color:#333333; font-size:15px;">Supporting small-scale food production for women empowerment.</p>
-    </div>
-
-  </div>
-</section>
-
-</body>
-</html>
+    <script>
+        // Animation script to make cards slide up when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.initiative-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a small delay based on card position for staggered animation
+                        const index = Array.from(cards).indexOf(entry.target);
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100); // Stagger the animation
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Toggle functionality for View All Projects buttons
+            const viewToggleButtons = document.querySelectorAll('.view-toggle');
+            viewToggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Find the card list within the same card as the clicked button
+                    const card = this.closest('.initiative-card');
+                    const cardList = card.querySelector('.card-list');
+                    
+                    // Toggle only this specific card's list
+                    if (cardList.classList.contains('expanded')) {
+                        cardList.classList.remove('expanded');
+                        this.textContent = 'View All Projects';
+                    } else {
+                        cardList.classList.add('expanded');
+                        this.textContent = 'View Less';
+                    }
+                });
+            });
+        });
+    </script>
+ 

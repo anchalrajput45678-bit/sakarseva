@@ -1,0 +1,432 @@
+  
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .slider-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #b31248;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #FF6600;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .slider-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px 30px;
+            scrollbar-width: none;
+        }
+        
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .slide {
+            flex: 0 0 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 30px;
+            opacity: 1;
+        }
+        
+        .overlay h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #FBB040;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .overlay p {
+            display: none; /* Hide description by default */
+        }
+        
+        .slide.active .overlay h3 {
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: #b31248;
+            transform: scale(1.2);
+        }
+        
+        .slider-arrows {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        
+        .arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #b31248;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            pointer-events: all;
+        }
+        
+        .arrow:hover {
+            background: #b31248;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .slide {
+                flex: 0 0 300px;
+                height: 350px;
+            }
+            
+            .overlay h3 {
+                font-size: 1.5rem;
+            }
+            
+            .arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .slide {
+                flex: 0 0 280px;
+                height: 320px;
+            }
+            
+            .overlay {
+                padding: 20px;
+            }
+            
+            .overlay h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slider-section {
+                margin: 50px auto;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            
+            .slide {
+                flex: 0 0 260px;
+                height: 300px;
+            }
+            
+            .overlay {
+                padding: 15px;
+            }
+            
+            .overlay h3 {
+                font-size: 1.3rem;
+            }
+            
+            .arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .slider-nav {
+                margin-top: 20px;
+            }
+        }
+    </style>
+ 
+    <!-- Modern Image Slider Section -->
+    <section class="slider-section">
+        <h2 class="section-title">Our Impact Areas</h2>
+        
+        <div class="slider-container" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="https://media.istockphoto.com/id/1175491482/vector/children-watching-television-in-a-room.jpg?s=612x612&w=0&k=20&c=5B767tPYGQIqj43g_yo47It8635AhP_wiPly7KpUSSU="
+                     alt="Education for Children">
+                <div class="overlay">
+                    <h3>Education for Children</h3>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://i.pinimg.com/474x/bb/b9/82/bbb98276b247bfecde16158b99dc1084.jpg"
+                     alt="Women Empowerment Programs">
+                <div class="overlay">
+                    <h3>Women Empowerment</h3>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://www.voiceofbihar.in/wp-content/uploads/2025/07/1751989432128.webp"
+                     alt="Healthcare Access">
+                <div class="overlay">
+                    <h3>Healthcare Access</h3>
+                </div>
+            </div>
+            
+            <!-- Additional Slides -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                     alt="Environmental Sustainability">
+                <div class="overlay">
+                    <h3>Environment Care</h3>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1559027615-cfa462850979?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                     alt="Community Development">
+                <div class="overlay">
+                    <h3>Community Development</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-arrows">
+            <div class="arrow prev">&#10094;</div>
+            <div class="arrow next">&#10095;</div>
+        </div>
+        
+        <div class="slider-nav">
+            <div class="nav-dot active"></div>
+            <div class="nav-dot"></div>
+            <div class="nav-dot"></div>
+            <div class="nav-dot"></div>
+            <div class="nav-dot"></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            
+            function updateSlider() {
+                slides[currentIndex].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+                
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentIndex);
+                });
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+            
+            let startX = 0;
+            let endX = 0;
+            
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (startX - endX > swipeThreshold) {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                } else if (endX - startX > swipeThreshold) {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                }
+            }
+            
+            let autoPlayInterval;
+            
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                }, 4000);
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+            
+            startAutoPlay();
+            
+            slider.addEventListener('mouseenter', stopAutoPlay);
+            slider.addEventListener('mouseleave', startAutoPlay);
+            slider.addEventListener('touchstart', stopAutoPlay);
+            slider.addEventListener('touchend', startAutoPlay);
+        });
+    </script>
+ 
+
+
+
+
+
+
+ <!-- kuch nwew -->
+  <!-- Additional Content Section -->
+    <section style="background-color: #F5F5F5; padding: 80px 40px; text-align: center;">
+       
+        <h2 style="color: #FF0099; font-size: 2.5rem; margin-bottom: 20px;color:  #FF0099">Our Services </h2>
+        
+        <p style="color: #333333; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.6;">
+            We are dedicated to ensuring every child in India has access to education, healthcare, and a safe environment to grow and thrive. Join us in our mission to create brighter futures for the next generation.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px;">
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #FF6600; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i></div>
+                <h3 style="color: #FF6600; margin-bottom: 15px;">Education</h3>
+                <p style="color: #333333;">Providing quality education to underprivileged children across India.</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #66CC33; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-heartbeat"></i></div>
+                <h3 style="color: #66CC33; margin-bottom: 15px;">Healthcare</h3>
+                <p style="color: #333333;">Ensuring access to proper healthcare and nutrition for all children.</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 300px;">
+                <div style="color: #FFCC00; font-size: 3rem; margin-bottom: 20px;"><i class="fas fa-home"></i></div>
+                <h3 style="color: #FFCC00; margin-bottom: 15px;">Safe Environment</h3>
+                <p style="color: #333333;">Creating safe spaces where children can play, learn and grow.</p>
+            </div>
+        </div>
+    </section>
